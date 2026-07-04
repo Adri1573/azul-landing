@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AZUL — Adiestramiento canino con IA</title>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '27265872873067948');
+  fbq('init', '2743460993287201');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=27265872873067948&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <meta name="description" content="Descubre el plan de entrenamiento personalizado para tu perro en 60 segundos. Basado en IA, diseñado para ti y tu perro." />
+  <meta name="theme-color" content="#60B8E8" />
+  <meta property="og:title" content="AZUL — Entrena a tu perro con IA" />
+  <meta property="og:description" content="Responde 10 preguntas y obtén un plan de entrenamiento personalizado para tu perro. Sin castigos. Resultados en 7 días." />
+  <meta property="og:image" content="https://azulapp.org/og-image.png" />
+  <meta property="og:url" content="https://azulapp.org" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="https://azulapp.org/favicon.png" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --azul: #60B8E8;
+      --azul-dark: #3a9fd4;
+      --marron: #2C1810;
+      --amarillo: #F7D44C;
+      --crema: #F5EAD6;
+      --gris: #6B7280;
+      --gris-claro: #F3F4F6;
+      --rojo: #EF4444;
+      --verde: #10B981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--crema);
+      min-height: 100vh;
+      color: var(--marron);
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--azul);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-family: 'Nunito', -apple-system, sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--amarillo);
+      letter-spacing: 6px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+    .nav-tag {
+      font-size: 12px;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, var(--azul) 0%, #3a9fd4 100%);
+      padding: 60px 20px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: var(--crema);
+      border-radius: 50% 50% 0 0 / 60px 60px 0 0;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--amarillo);
+      color: var(--marron);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+    .hero h1 {
+      font-size: clamp(26px, 5vw, 44px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      max-width: 600px;
+      margin: 0 auto 16px;
+    }
+    .hero h1 span { color: var(--amarillo); }
+    .hero p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.9);
+      max-width: 480px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      text-align: center;
+      color: #fff;
+    }
+    .hero-stat strong {
+      display: block;
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--amarillo);
+    }
+    .hero-stat span { font-size: 12px; opacity: 0.85; }
+
+    /* ── QUIZ CONTAINER ── */
+    .quiz-wrap {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* ── PROGRESS ── */
+    .progress-wrap {
+      margin-bottom: 28px;
+    }
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--gris);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .progress-bar {
+      height: 6px;
+      background: #E5E7EB;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--azul), var(--amarillo));
+      border-radius: 10px;
+      transition: width 0.4s ease;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 28px 24px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    }
+
+    /* ── STEPS ── */
+    .step { display: none; }
+    .step.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse-btn { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+    .btn-pulse { animation: pulse-btn 1.8s ease-in-out infinite; }
+
+    .step-q {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--marron);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .step-sub {
+      font-size: 14px;
+      color: var(--gris);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    /* ── OPTIONS ── */
+    .options { display: grid; gap: 12px; }
+    .options.two-col { grid-template-columns: 1fr 1fr; }
+
+    .option {
+      border: 2px solid #E5E7EB;
+      border-radius: 16px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: all 0.18s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--gris-claro);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--marron);
+      text-align: left;
+    }
+    .option:hover { border-color: var(--azul); background: #EBF5FC; }
+    .option.selected { border-color: var(--azul); background: #EBF5FC; color: var(--azul); }
+    .option .opt-emoji { font-size: 24px; flex-shrink: 0; }
+    .option .opt-label { flex: 1; line-height: 1.3; }
+    .option .opt-sub { font-size: 11px; color: var(--gris); font-weight: 400; display: block; margin-top: 2px; }
+
+    /* ── BTN ── */
+    .btn-next {
+      width: 100%;
+      background: var(--azul);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-next:hover { background: var(--azul-dark); transform: translateY(-1px); }
+    .btn-next:disabled { background: #B0D4EE; cursor: not-allowed; transform: none; }
+
+    .btn-cta {
+      background: var(--amarillo);
+      color: var(--marron);
+      font-size: 18px;
+      border-radius: 50px;
+      padding: 18px;
+      font-weight: 900;
+      box-shadow: 0 6px 20px rgba(247,212,76,0.45);
+    }
+    .btn-cta:hover { background: #f0c930; }
+
+    /* ── FEEDBACK ── */
+    .feedback-photo-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      height: 220px;
+      background: #E5E7EB;
+    }
+    .feedback-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .feedback-photo-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.65));
+      padding: 20px 16px 14px;
+    }
+    .feedback-raza-tag {
+      display: inline-block;
+      background: var(--amarillo);
+      color: var(--marron);
+      font-size: 11px;
+      font-weight: 900;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 6px;
+    }
+    .feedback-photo-title {
+      font-size: 17px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .feedback-score {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .feedback-score-item {
+      background: var(--gris-claro);
+      border-radius: 14px;
+      padding: 12px 14px;
+      text-align: center;
+    }
+    .feedback-score-num {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--azul);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .feedback-score-label {
+      font-size: 11px;
+      color: var(--gris);
+      font-weight: 600;
+    }
+    .feedback-insight {
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 12px;
+      border-left: 4px solid var(--azul);
+    }
+    .feedback-insight-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--marron);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .feedback-insight p {
+      font-size: 13px;
+      color: var(--gris);
+      line-height: 1.6;
+    }
+    .feedback-insight.emocional { border-left-color: #F7D44C; }
+    .feedback-insight.alerta { border-left-color: #EF4444; }
+    .feedback-cta-wrap {
+      background: linear-gradient(135deg, var(--azul), var(--azul-dark));
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .feedback-cta-wrap p { color: rgba(255,255,255,0.9); font-size: 13px; margin-bottom: 12px; line-height: 1.5; }
+    .feedback-cta-wrap strong { color: #fff; font-size: 15px; display: block; margin-bottom: 6px; }
+    .btn-ver-plan {
+      background: var(--amarillo);
+      color: var(--marron);
+      font-size: 16px;
+      font-weight: 900;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 28px;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 0 4px 14px rgba(247,212,76,0.4);
+      transition: all 0.2s;
+    }
+    .btn-ver-plan:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(247,212,76,0.5); }
+
+    /* ── LOADING ── */
+    #step-loading .loading-bar-wrap {
+      background: #E5E7EB;
+      border-radius: 10px;
+      height: 8px;
+      margin: 24px 0 16px;
+      overflow: hidden;
+    }
+    .loading-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--azul), var(--amarillo));
+      border-radius: 10px;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+    .loading-msgs {
+      font-size: 13px;
+      color: var(--gris);
+      text-align: center;
+      min-height: 20px;
+      transition: opacity 0.3s;
+    }
+
+    /* ── RESULTADO ── */
+    .resultado-header {
+      background: linear-gradient(135deg, var(--azul), #3a9fd4);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+    .resultado-header h2 { font-size: 22px; font-weight: 900; margin-bottom: 6px; }
+    .resultado-header p { font-size: 13px; opacity: 0.9; line-height: 1.5; }
+
+    .diagnosis-tag {
+      display: inline-block;
+      background: var(--amarillo);
+      color: var(--marron);
+      font-size: 11px;
+      font-weight: 900;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .plan-items { display: grid; gap: 10px; margin-bottom: 24px; }
+    .plan-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--gris-claro);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .plan-item .pi-emoji { font-size: 20px; margin-top: 1px; }
+    .plan-item .pi-text { font-size: 13px; line-height: 1.4; }
+    .plan-item .pi-text strong { display: block; font-size: 14px; color: var(--marron); }
+
+    .garantia {
+      text-align: center;
+      font-size: 12px;
+      color: var(--gris);
+      margin-top: 14px;
+    }
+
+    /* ── PLANES SELECTOR ── */
+    .planes-grid { display: grid; gap: 10px; margin-bottom: 24px; }
+
+    .plan-opt {
+      border: 2px solid #E5E7EB;
+      border-radius: 18px;
+      padding: 16px 18px;
+      cursor: pointer;
+      background: var(--gris-claro);
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .plan-opt:hover { border-color: var(--azul); background: #EBF5FC; }
+    .plan-anual-card {
+      position: relative;
+      overflow: visible;
+    }
+    .anual-popular-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--azul), #2B8CC4);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 5px 16px;
+      border-radius: 20px;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(96,184,232,0.4);
+    }
+    .plan-opt.selected-plan {
+      border-color: var(--azul);
+      background: #EBF5FC;
+      box-shadow: 0 4px 16px rgba(96,184,232,0.25);
+    }
+    .plan-opt-badge {
+      font-size: 10px;
+      font-weight: 900;
+      padding: 3px 10px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 8px;
+      letter-spacing: 0.4px;
+    }
+    .anual-badge { background: var(--azul); color: #fff; }
+    .plan-opt-nombre {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gris);
+      margin-bottom: 2px;
+    }
+    .plan-opt.selected-plan .plan-opt-nombre { color: var(--azul); }
+    .plan-opt-precio {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--marron);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .plan-opt.selected-plan .plan-opt-precio { color: var(--azul); }
+    .plan-opt-sub {
+      font-size: 11px;
+      color: var(--gris);
+      line-height: 1.4;
+    }
+
+
+    /* ── TESTIMONIOS ── */
+    .testimonios {
+      background: #fff;
+      border-radius: 24px;
+      padding: 24px;
+      margin-top: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .test-title {
+      font-size: 15px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 16px;
+      color: var(--marron);
+    }
+    .test-list { display: grid; gap: 12px; }
+    .test-item {
+      background: var(--gris-claro);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .test-stars { color: #FBBF24; font-size: 13px; margin-bottom: 6px; }
+    .test-text { font-size: 13px; color: var(--marron); line-height: 1.5; font-style: italic; }
+    .test-author { font-size: 12px; color: var(--gris); font-weight: 700; margin-top: 8px; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 12px;
+      color: var(--gris);
+      border-top: 1px solid #E5E7EB;
+      margin-top: 40px;
+    }
+
+    /* ── BACK BUTTON ── */
+    .btn-back {
+      background: var(--azul);
+      border: none;
+      color: #fff;
+      font-size: 13px;
+      cursor: pointer;
+      padding: 8px 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+      border-radius: 50px;
+      transition: all 0.2s;
+    }
+    .btn-back:hover { background: var(--azul-dark); }
+
+    /* ── RESPONSIVE: MOBILE (<480px) ── */
+    @media (max-width: 480px) {
+      .options.two-col { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 22px; }
+      .hero { padding: 40px 16px 60px; }
+      .quiz-wrap { padding: 28px 14px 60px; }
+      .card { padding: 20px 16px; border-radius: 18px; }
+      .hero-stats { gap: 14px; }
+      .hero-stat strong { font-size: 20px; }
+      .feedback-score { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── RESPONSIVE: TABLET (481px – 768px) ── */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .quiz-wrap { max-width: 600px; padding: 36px 24px 80px; }
+      .test-list { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── RESPONSIVE: DESKTOP (>768px) ── */
+    @media (min-width: 769px) {
+      .quiz-wrap { max-width: 620px; padding: 48px 0 100px; }
+      .hero { padding: 80px 40px 100px; }
+      .hero h1 { font-size: clamp(34px, 4vw, 52px); }
+      .hero p { font-size: 18px; }
+      .test-list { grid-template-columns: 1fr 1fr; }
+      .feedback-score { grid-template-columns: repeat(4, 1fr); }
+      .planes-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">AZUL</span>
+  <span class="nav-tag">🐾 Adiestramiento con IA</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge" id="hero-badge">✨ Método validado por adiestradores profesionales</div>
+  <h1 id="hero-h1">No fallaste como dueño.<br><span>Solo necesitas el método correcto.</span></h1>
+  <p id="hero-p">De perro caótico a compañero perfecto — responde 10 preguntas y obtén tu plan personalizado en 2 minutos.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>+12,000</strong><span>perros entrenados</span></div>
+    <div class="hero-stat"><strong>21 días</strong><span>para ver resultados</span></div>
+    <div class="hero-stat"><strong>4.9 ⭐</strong><span>calificación promedio</span></div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div class="quiz-wrap">
+
+  <!-- Progress -->
+  <div class="progress-wrap" id="progress-section">
+    <div class="progress-meta">
+      <span id="step-label">Paso 1 de 10</span>
+      <span id="step-pct">10%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill" style="width: 10%"></div>
+    </div>
+  </div>
+
+  <div class="card">
+
+    <!-- BACK -->
+    <button class="btn-back" id="btn-back" style="display:none" onclick="goBack()">← Volver</button>
+
+    <!-- STEP 1: Nombre del perro (NEW) -->
+    <div class="step active" id="step-1">
+      <p class="step-q">El nombre de tu perro es... 🐶</p>
+      <p class="step-sub">Lo usaremos para personalizar todo tu plan de entrenamiento.</p>
+      <div style="margin:20px 0">
+        <input type="text" id="input-nombre" placeholder="Escribe el nombre aquí..." style="width:100%;padding:16px 20px;border:2px solid #E5E7EB;border-radius:50px;font-size:16px;font-family:inherit;color:#2C1810;outline:none;transition:border 0.2s;text-align:center" onfocus="this.style.borderColor='#60B8E8'" onblur="this.style.borderColor='#E5E7EB'" />
+      </div>
+      <button class="btn-next" onclick="guardarNombre()" id="btn-nombre">Continuar →</button>
+    </div>
+
+    <!-- STEP 2: Edad del perro -->
+    <div class="step" id="step-2">
+      <p class="step-q">¿Qué edad tiene <span class="dog-name">tu perro</span>? 🐶</p>
+      <p class="step-sub">La edad cambia completamente el enfoque del entrenamiento.</p>
+      <div class="options two-col">
+        <div class="option" onclick="selectOption(this, 'edad', 'cachorro', 3)">
+          <span class="opt-emoji">🐶</span>
+          <span class="opt-label">Cachorro<span class="opt-sub">0 – 6 meses</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'edad', 'joven', 3)">
+          <span class="opt-emoji">🐕</span>
+          <span class="opt-label">Joven<span class="opt-sub">6 – 18 meses</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'edad', 'adulto', 3)">
+          <span class="opt-emoji">🦮</span>
+          <span class="opt-label">Adulto<span class="opt-sub">1,5 – 7 años</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'edad', 'senior', 3)">
+          <span class="opt-emoji">🐾</span>
+          <span class="opt-label">Senior<span class="opt-sub">7+ años</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: Tamaño/raza -->
+    <div class="step" id="step-3">
+      <p class="step-q">¿Qué tipo de perro es <span class="dog-name">tu perro</span>? 🏷️</p>
+      <p class="step-sub">Cada raza aprende de forma diferente — personalizamos el ritmo.</p>
+      <div class="options">
+        <div class="option" onclick="selectOption(this, 'tamano', 'pequeno', 4)">
+          <span class="opt-emoji">🐩</span>
+          <span class="opt-label">Raza pequeña<span class="opt-sub">Chihuahua, Shih Tzu, Yorkshire, Poodle...</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'tamano', 'mediano', 4)">
+          <span class="opt-emoji">🐕</span>
+          <span class="opt-label">Raza mediana<span class="opt-sub">Beagle, Cocker, Bulldog, Boxer, Husky...</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'tamano', 'grande', 4)">
+          <span class="opt-emoji">🦮</span>
+          <span class="opt-label">Raza grande<span class="opt-sub">Labrador, Golden, Pastor Alemán, Pitbull...</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'tamano', 'mestizo', 4)">
+          <span class="opt-emoji">🐾</span>
+          <span class="opt-label">Mestizo / criollo<span class="opt-sub">El mejor perro del mundo 💛</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: Género (NEW) -->
+    <div class="step" id="step-4">
+      <p class="step-q"><span class="dog-name">Tu perro</span> es... 🐾</p>
+      <div class="options">
+        <div class="option" onclick="selectOption(this, 'genero', 'macho', 5)">
+          <span class="opt-emoji">♂️</span>
+          <span class="opt-label">Macho</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'genero', 'hembra', 5)">
+          <span class="opt-emoji">♀️</span>
+          <span class="opt-label">Hembra</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 5: REFUERZO 1 (NEW) -->
+    <div class="step" id="step-5">
+      <div style="text-align:center;padding:10px 0">
+        <p style="font-size:20px;font-weight:900;color:var(--marron);line-height:1.4;margin-bottom:6px">Estamos personalizando la experiencia para <span class="dog-name" style="color:var(--azul)">tu perro</span> ✨</p>
+        <p style="font-size:14px;color:var(--gris);margin-bottom:24px">Esto es lo que la ciencia dice sobre el entrenamiento canino:</p>
+        <div style="background:linear-gradient(135deg,var(--azul),#2B8CC4);color:#fff;border-radius:20px;padding:28px 24px;margin-bottom:24px;box-shadow:0 8px 24px rgba(96,184,232,0.3)">
+          <p style="font-size:13px;font-weight:900;color:var(--amarillo);letter-spacing:2px;margin-bottom:12px">INFORMACIÓN PRO</p>
+          <p style="font-size:18px;font-style:italic;line-height:1.5;font-weight:600">"Los perros que reciben entrenamiento basado en refuerzo positivo aprenden <span style="color:var(--amarillo);font-weight:900">2x más rápido</span> que con métodos tradicionales."</p>
+        </div>
+        <button class="btn-next" onclick="currentStep=6;showStep(6)" style="font-size:18px;padding:18px">Continuar →</button>
+      </div>
+    </div>
+
+    <!-- STEP 6: Problema principal -->
+    <div class="step" id="step-6">
+      <p class="step-q">¿Cuál es el mayor problema de <span class="dog-name">tu perro</span>? 🎯</p>
+      <p class="step-sub">Sé sincero — aquí creamos el plan para <em>ese</em> problema específico.</p>
+      <div class="options">
+        <div class="option" onclick="selectOption(this, 'problema', 'ladrar', 7)">
+          <span class="opt-emoji">🔊</span>
+          <span class="opt-label">Ladra demasiado<span class="opt-sub">En casa, con visitas, en la calle...</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'problema', 'ansiedad', 7)">
+          <span class="opt-emoji">😰</span>
+          <span class="opt-label">Ansiedad / destruye cosas<span class="opt-sub">Cuando lo dejo solo, muerde muebles...</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'problema', 'jalar', 7)">
+          <span class="opt-emoji">🦮</span>
+          <span class="opt-label">Jala la correa<span class="opt-sub">Los paseos son una lucha</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'problema', 'agresion', 7)">
+          <span class="opt-emoji">😤</span>
+          <span class="opt-label">Agresividad<span class="opt-sub">Con otros perros, personas o en casa</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'problema', 'saltar', 7)">
+          <span class="opt-emoji">🦘</span>
+          <span class="opt-label">Salta sobre las personas<span class="opt-sub">A todos les parece gracioso hasta que no lo es</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'problema', 'general', 7)">
+          <span class="opt-emoji">📚</span>
+          <span class="opt-label">Quiero mejorar en general<span class="opt-sub">Obediencia, comandos, comportamiento</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 7: Experiencia previa (NEW) -->
+    <div class="step" id="step-7">
+      <p class="step-q">¿Has intentado entrenar a <span class="dog-name">tu perro</span> antes? 📋</p>
+      <p class="step-sub">Selecciona la opción que mejor describa tu experiencia:</p>
+      <div class="options">
+        <div class="option" onclick="selectOption(this, 'experiencia', 'nunca', 8)">
+          <span class="opt-emoji">❌</span>
+          <span class="opt-label">No, nunca lo he intentado</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'experiencia', 'gratis', 8)">
+          <span class="opt-emoji">📱</span>
+          <span class="opt-label">Sí, con info gratuita<span class="opt-sub">YouTube, blogs, redes sociales</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'experiencia', 'pagado', 8)">
+          <span class="opt-emoji">💰</span>
+          <span class="opt-label">Sí, con entrenadores o cursos pagados</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'experiencia', 'sin_resultado', 8)">
+          <span class="opt-emoji">⚠️</span>
+          <span class="opt-label">Sí, pero no obtuve resultados<span class="opt-sub">Nada ha funcionado hasta ahora</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 8: Tiempo que lleva el problema -->
+    <div class="step" id="step-8">
+      <p class="step-q">¿Cuánto tiempo llevan con este problema? ⏳</p>
+      <p class="step-sub">Esto nos ayuda a calibrar la intensidad del plan.</p>
+      <div class="options two-col">
+        <div class="option" onclick="selectOption(this, 'tiempo', 'reciente', 9)">
+          <span class="opt-emoji">🌱</span>
+          <span class="opt-label">Menos de un mes</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'tiempo', 'meses', 9)">
+          <span class="opt-emoji">📅</span>
+          <span class="opt-label">1 – 6 meses</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'tiempo', 'anio', 9)">
+          <span class="opt-emoji">🗓️</span>
+          <span class="opt-label">6 meses – 1 año</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'tiempo', 'mas', 9)">
+          <span class="opt-emoji">😓</span>
+          <span class="opt-label">Más de un año</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 9: REFUERZO 2 (NEW) -->
+    <div class="step" id="step-9">
+      <div style="text-align:center;padding:10px 0">
+        <p style="font-size:20px;font-weight:900;color:var(--marron);line-height:1.4;margin-bottom:6px">Vamos muy bien 🔥</p>
+        <p style="font-size:14px;color:var(--gris);margin-bottom:24px">Ya tenemos un perfil claro de <strong class="dog-name" style="color:var(--azul)">tu perro</strong>. Falta poco.</p>
+        <div style="background:linear-gradient(135deg,#2ECC71,#1FAF5C);color:#fff;border-radius:20px;padding:28px 24px;margin-bottom:24px;box-shadow:0 8px 24px rgba(46,204,113,0.3)">
+          <p style="font-size:13px;font-weight:900;color:#fff;letter-spacing:2px;margin-bottom:12px;opacity:0.8">INFORMACIÓN PRO</p>
+          <p style="font-size:18px;font-style:italic;line-height:1.5;font-weight:600">"No existen perros malos, solo perros que no han tenido <span style="color:#F7D44C;font-weight:900">la guía correcta</span>. Cuando entiendes la mente de tu perro, dejas de corregir y empiezas a liderar."</p>
+        </div>
+        <button class="btn-next" onclick="currentStep=10;showStep(10)" style="font-size:18px;padding:18px">Continuar →</button>
+      </div>
+    </div>
+
+    <!-- STEP 10: Dedicación -->
+    <div class="step" id="step-10">
+      <p class="step-q">¿Cuánto tiempo al día puedes entrenar? ⏱️</p>
+      <p class="step-sub">No se necesita mucho — la constancia es lo que importa.</p>
+      <div class="options">
+        <div class="option" onclick="selectOption(this, 'dedicacion', '5min', 11)">
+          <span class="opt-emoji">⚡</span>
+          <span class="opt-label">5 minutos<span class="opt-sub">Sesiones cortas y efectivas</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'dedicacion', '15min', 11)">
+          <span class="opt-emoji">🎯</span>
+          <span class="opt-label">15 minutos<span class="opt-sub">El tiempo ideal para resultados rápidos</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'dedicacion', '30min', 11)">
+          <span class="opt-emoji">🏆</span>
+          <span class="opt-label">30 minutos o más<span class="opt-sub">Máximos resultados</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 11: Emoción -->
+    <div class="step" id="step-11">
+      <p class="step-q">¿Cómo te sientes cuando <span class="dog-name">tu perro</span> no te obedece? 😔</p>
+      <p class="step-sub">No hay respuesta incorrecta — esto nos ayuda a entender la dinámica entre ustedes.</p>
+      <div class="options">
+        <div class="option" onclick="selectOption(this, 'emocion_fallo', 'frustrado', 12)">
+          <span class="opt-emoji">😤</span>
+          <span class="opt-label">Frustrado / sin paciencia<span class="opt-sub">Siento que no sé qué más hacer</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'emocion_fallo', 'culpa', 12)">
+          <span class="opt-emoji">😞</span>
+          <span class="opt-label">Con culpa<span class="opt-sub">Siento que es mi culpa</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'emocion_fallo', 'preocupada', 12)">
+          <span class="opt-emoji">😰</span>
+          <span class="opt-label">Preocupado<span class="opt-sub">Me da miedo que esto empeore</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'emocion_fallo', 'resignada', 12)">
+          <span class="opt-emoji">🤷</span>
+          <span class="opt-label">Resignado<span class="opt-sub">Ya casi lo acepto como "su personalidad"</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 12: Meta final → loading -->
+    <div class="step" id="step-12">
+      <p class="step-q">¿Qué cambio más quieres ver en <span class="dog-name">tu perro</span>? 🌟</p>
+      <p class="step-sub">Esta respuesta define el gran objetivo de tu plan personalizado.</p>
+      <div class="options">
+        <div class="option" onclick="selectOption(this, 'meta', 'obediencia', 'loading')">
+          <span class="opt-emoji">🎯</span>
+          <span class="opt-label">Que me obedezca cuando lo llamo<span class="opt-sub">Conexión real, no solo cuando le conviene</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'meta', 'tranquilidad', 'loading')">
+          <span class="opt-emoji">🕊️</span>
+          <span class="opt-label">Que esté tranquilo en casa<span class="opt-sub">Sin destrucción, sin ansiedad, sin ladridos</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'meta', 'paseos', 'loading')">
+          <span class="opt-emoji">🌳</span>
+          <span class="opt-label">Disfrutar los paseos juntos<span class="opt-sub">Sin jalar, sin dramas — solo disfrute</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'meta', 'vinculo', 'loading')">
+          <span class="opt-emoji">💞</span>
+          <span class="opt-label">Fortalecer nuestro vínculo<span class="opt-sub">Que confíe en mí y yo en él</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOADING -->
+    <div class="step" id="step-loading">
+      <p class="step-q" style="text-align:center">🧠 Analizando a tu perro...</p>
+      <p class="step-sub" style="text-align:center">Creando tu plan personalizado con IA</p>
+      <div class="loading-bar-wrap">
+        <div class="loading-bar" id="loading-bar"></div>
+      </div>
+      <p class="loading-msgs" id="loading-msg">Procesando perfil...</p>
+    </div>
+
+    <!-- FEEDBACK PERSONALIZADO -->
+    <div class="step" id="step-feedback">
+      <div class="feedback-photo-wrap">
+        <img class="feedback-photo" id="feedback-img" src="" alt="Tu tipo de perro" loading="lazy" decoding="async" />
+        <div class="feedback-photo-overlay">
+          <div class="feedback-raza-tag" id="feedback-raza-tag">Raza</div>
+          <p class="feedback-photo-title" id="feedback-photo-title">Diagnóstico listo</p>
+        </div>
+      </div>
+
+      <div class="feedback-score">
+        <div class="feedback-score-item">
+          <div class="feedback-score-num" id="fb-score-entrenable">87%</div>
+          <div class="feedback-score-label">Potencial de entrenamiento</div>
+        </div>
+        <div class="feedback-score-item">
+          <div class="feedback-score-num" id="fb-score-tiempo">21</div>
+          <div class="feedback-score-label">Días estimados para cambio visible</div>
+        </div>
+      </div>
+
+      <div class="feedback-insight" id="fb-raza-insight">
+        <div class="feedback-insight-title">🐕 Sobre tu tipo de perro</div>
+        <p id="fb-raza-texto"></p>
+      </div>
+
+      <div class="feedback-insight" id="fb-problema-insight">
+        <div class="feedback-insight-title">🎯 Por qué ocurre este comportamiento</div>
+        <p id="fb-problema-texto"></p>
+      </div>
+
+      <div class="feedback-insight emocional">
+        <div class="feedback-insight-title">💛 Lo que sentiste tiene sentido</div>
+        <p id="fb-emocion-texto"></p>
+      </div>
+
+      <div class="feedback-insight alerta">
+        <div class="feedback-insight-title">⚠️ Qué pasa si no se trabaja ahora</div>
+        <p id="fb-alerta-texto"></p>
+      </div>
+
+      <div class="feedback-cta-wrap">
+        <strong>El plan de <span class="dog-name">tu perro</span> está listo 🎉</strong>
+        <p>AZUL creó un programa de <span id="fb-dias-plan">21</span> días basado exactamente en el perfil de <span class="dog-name">tu perro</span>, su comportamiento y tu rutina diaria.</p>
+        <button class="btn-ver-plan" onclick="showResultado()">Ver mi plan y obtener acceso →</button>
+      </div>
+    </div>
+
+    <!-- RESULTADO -->
+    <div class="step" id="step-resultado">
+
+      <div class="resultado-header">
+        <div class="diagnosis-tag" id="res-badge">DIAGNÓSTICO PERSONALIZADO</div>
+        <h2 id="res-titulo">Plan listo para tu perro 🎉</h2>
+        <p id="res-descripcion">Basado en sus respuestas, creamos el plan perfecto.</p>
+      </div>
+
+      <p style="font-size:20px;font-weight:900;color:var(--azul-dark);margin-bottom:16px;text-align:center">🐾 Tu plan incluye:</p>
+      <div class="plan-items">
+        <div class="plan-item">
+          <span class="pi-emoji">🤖</span>
+          <div class="pi-text"><strong>AzulIA — Tu entrenador personal con IA</strong>Chatea 24/7 con tu entrenador virtual: te explica por qué tu perro hace lo que hace y qué hacer exactamente.</div>
+        </div>
+        <div class="plan-item">
+          <span class="pi-emoji">📚</span>
+          <div class="pi-text"><strong>+50 ejercicios con pasos guiados</strong>Entrenamientos con instrucciones claras, organizados por problema y nivel de dificultad.</div>
+        </div>
+        <div class="plan-item">
+          <span class="pi-emoji">📈</span>
+          <div class="pi-text"><strong>Seguimiento de progreso</strong>Registra cada sesión y ve cómo avanza tu perro día a día con gráficas y estadísticas.</div>
+        </div>
+        <div class="plan-item">
+          <span class="pi-emoji">📅</span>
+          <div class="pi-text"><strong>Recordatorios de salud</strong>Vacunas, desparasitación y visitas al vet — todo organizado y con alertas automáticas.</div>
+        </div>
+        <div class="plan-item">
+          <span class="pi-emoji">🏆</span>
+          <div class="pi-text"><strong>Logros y rachas de entrenamiento</strong>Sistema de medallas que celebra cada avance y te mantiene consistente.</div>
+        </div>
+        <div class="plan-item">
+          <span class="pi-emoji">👥</span>
+          <div class="pi-text"><strong>Comunidad de dueños AZUL</strong>Retos semanales y apoyo de miles de dueños como tú.</div>
+        </div>
+        <div class="plan-item">
+          <span class="pi-emoji">📱</span>
+          <div class="pi-text"><strong>QR inteligente para el collar</strong>Genera un código QR con los datos de tu perro — si se pierde, quien lo encuentre escanea y te contacta al instante.</div>
+        </div>
+        <div class="plan-item">
+          <span class="pi-emoji">🌍</span>
+          <div class="pi-text"><strong>Disponible en 4 idiomas</strong>Español, inglés, francés y portugués — para toda la familia.</div>
+        </div>
+      </div>
+
+      <!-- TESTIMONIOS -->
+      <div class="testimonios">
+        <p class="test-title">Lo que dicen las familias AZUL 💛</p>
+        <div class="test-list">
+          <div class="test-item">
+            <div class="test-stars">★★★★★</div>
+            <p class="test-text">"En 3 semanas mi golden ya no destruye nada cuando me voy. AzulIA me explicó exactamente qué hacer y por qué funcionaba. Nunca había visto tanto progreso tan rápido."</p>
+            <p class="test-author">— María C., Bogotá 🇨🇴</p>
+          </div>
+          <div class="test-item">
+            <div class="test-stars">★★★★★</div>
+            <p class="test-text">"Mi pitbull de 4 años jalaba la correa como loco. Con el plan de AZUL en 2 semanas ya podemos caminar normal. Le cambió la vida a toda la familia."</p>
+            <p class="test-author">— Carlos M., Ciudad de México 🇲🇽</p>
+          </div>
+          <div class="test-item">
+            <div class="test-stars">★★★★★</div>
+            <p class="test-text">"AZUL fue lo que necesitaba. Las instrucciones son claras, fáciles de seguir, y funcionan desde el día 1. Vale cada peso."</p>
+            <p class="test-author">— Valentina R., Buenos Aires 🇦🇷</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SELECTOR DE PLAN -->
+      <div style="text-align:center;margin-bottom:16px">
+        <p style="font-size:24px;font-weight:900;color:var(--azul-dark);margin-bottom:4px">Elige tu plan</p>
+        <p style="font-size:13px;color:var(--gris)">Acceso completo a AZUL — cancela cuando quieras</p>
+      </div>
+      <div class="planes-grid">
+
+        <div class="plan-opt" id="plan-trial" onclick="selectPlan('trial')" style="position:relative;overflow:visible">
+          <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#10B981;color:#fff;font-size:11px;font-weight:900;padding:4px 14px;border-radius:20px;white-space:nowrap">🐾 PRUEBA 7 DÍAS</div>
+          <div class="plan-opt-nombre" style="font-size:14px;margin-top:8px">Trial</div>
+          <div class="plan-opt-precio" style="font-size:32px">$1.00<span style="font-size:14px;font-weight:500;color:var(--gris)">/7 días</span></div>
+          <div class="plan-opt-sub">Luego $4.99/mes · Cancela cuando quieras</div>
+        </div>
+
+        <div class="plan-opt" id="plan-mensual" onclick="selectPlan('mensual')">
+          <div class="plan-opt-nombre" style="font-size:14px">Mensual</div>
+          <div class="plan-opt-precio" style="font-size:32px">$4.99<span style="font-size:14px;font-weight:500;color:var(--gris)">/mes</span></div>
+          <div class="plan-opt-sub">Sin compromiso, cancela cuando quieras</div>
+        </div>
+
+        <div class="plan-opt selected-plan plan-anual-card" id="plan-anual" onclick="selectPlan('anual')">
+          <div class="anual-popular-badge">⭐ MÁS POPULAR — AHORRA 50%</div>
+          <div class="plan-opt-nombre" style="font-size:14px;margin-top:8px">Anual</div>
+          <div style="font-size:14px;color:var(--gris);text-decoration:line-through;margin-bottom:2px">$59.99/año</div>
+          <div class="plan-opt-precio" style="font-size:36px">$29.99<span style="font-size:14px;font-weight:500;color:var(--gris)">/año</span></div>
+          <div style="background:var(--amarillo);color:var(--marron);font-size:12px;font-weight:800;padding:4px 12px;border-radius:20px;display:inline-block;margin-top:4px">≈ $2.50/mes — un café al mes ☕</div>
+          <div class="plan-opt-sub" style="margin-top:6px;font-weight:600">El plan que eligen el 80% de nuestros usuarios</div>
+        </div>
+
+      </div>
+
+      <!-- GRÁFICA DE PROGRESO -->
+      <div style="background:#fff;border-radius:20px;padding:20px;margin-top:24px;box-shadow:0 4px 20px rgba(0,0,0,0.06)">
+        <p style="font-size:14px;font-weight:800;color:var(--marron);margin-bottom:4px;text-align:center">📈 El progreso que puedes lograr con <strong class="dog-name" style="color:var(--azul)">tu perro</strong></p>
+        <p style="font-size:11px;color:var(--gris);text-align:center;margin-bottom:16px">Resultados promedio de nuestros usuarios</p>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;height:120px;padding:0 10px;gap:6px">
+          <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+            <div style="width:100%;background:#EF4444;border-radius:6px 6px 0 0;height:20px"></div>
+            <span style="font-size:9px;color:var(--gris);margin-top:4px">Hoy</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+            <div style="width:100%;background:#F97316;border-radius:6px 6px 0 0;height:35px"></div>
+            <span style="font-size:9px;color:var(--gris);margin-top:4px">Sem 1</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+            <div style="width:100%;background:#F7D44C;border-radius:6px 6px 0 0;height:55px"></div>
+            <span style="font-size:9px;color:var(--gris);margin-top:4px">Sem 2</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;flex:1">
+            <div style="width:100%;background:#2ECC71;border-radius:6px 6px 0 0;height:80px"></div>
+            <span style="font-size:9px;color:var(--gris);margin-top:4px">Sem 3</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;flex:1;position:relative">
+            <div style="position:absolute;top:-22px;background:var(--azul);color:#fff;font-size:9px;font-weight:800;padding:3px 8px;border-radius:10px">Meta</div>
+            <div style="width:100%;background:var(--azul);border-radius:6px 6px 0 0;height:110px"></div>
+            <span style="font-size:9px;color:var(--gris);margin-top:4px">Sem 4</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTADOR SOCIAL -->
+      <div style="text-align:center;margin-top:20px;margin-bottom:16px">
+        <p style="font-size:13px;color:var(--gris);display:inline-flex;align-items:center;gap:6px;background:#fff;padding:8px 16px;border-radius:50px;box-shadow:0 2px 10px rgba(0,0,0,0.06)">
+          <span style="width:8px;height:8px;background:#EF4444;border-radius:50%;display:inline-block;animation:pulse-btn 1.5s infinite"></span>
+          <span id="viewers-count">47</span> personas están viendo esta oferta ahora
+        </p>
+      </div>
+
+      <!-- TIMER URGENCIA -->
+      <div style="background:linear-gradient(135deg,#EF4444,#DC2626);border-radius:14px;padding:14px 20px;margin-bottom:20px;text-align:center;box-shadow:0 4px 16px rgba(239,68,68,0.3)">
+        <p style="font-size:12px;color:rgba(255,255,255,0.85);margin-bottom:4px;font-weight:600">Esta oferta especial expira en:</p>
+        <p style="font-size:28px;font-weight:900;color:#fff;letter-spacing:3px" id="countdown-timer">15:00</p>
+      </div>
+
+      <!-- BOTÓN PRINCIPAL CON PULSO -->
+      <button class="btn-next btn-cta btn-pulse" onclick="irAlCheckout()" style="margin-top:0;font-size:20px;padding:20px;box-shadow:0 8px 24px rgba(247,212,76,0.5)">
+        🐾 Empezar a entrenar a <span class="dog-name">tu perro</span> hoy →
+      </button>
+
+      <!-- GARANTÍA VISIBLE -->
+      <div style="background:#fff;border:2px solid #2ECC71;border-radius:16px;padding:16px 20px;margin-top:16px;display:flex;align-items:center;gap:14px;box-shadow:0 2px 10px rgba(0,0,0,0.04)">
+        <span style="font-size:32px">🛡️</span>
+        <div>
+          <p style="font-size:14px;font-weight:800;color:#2ECC71;margin-bottom:2px">Garantía de 7 días</p>
+          <p style="font-size:12px;color:var(--gris);line-height:1.4">Si no ves resultados, te devolvemos tu dinero. Sin preguntas, sin complicaciones.</p>
+        </div>
+      </div>
+
+      <p style="text-align:center;font-size:10px;color:#9CA3AF;margin-top:12px">🔒 Pago seguro · Tus datos están protegidos</p>
+
+      <!-- TESTIMONIOS -->
+    </div>
+    <!-- fin step-resultado -->
+
+    <!-- CUPÓN RASCA Y GANA (solo plan anual) -->
+    <div class="step" id="step-cupon">
+      <div style="text-align:center;padding:20px 0">
+        <p style="font-size:22px;font-weight:900;color:var(--marron);margin-bottom:4px">🎁 ¡Espera!</p>
+        <p style="font-size:16px;font-weight:800;color:var(--azul);margin-bottom:6px">Tienes un beneficio exclusivo</p>
+        <p style="font-size:13px;color:var(--gris);margin-bottom:24px">Por elegir el plan anual, tenemos algo especial para ti. Toca el cupón para revelarlo.</p>
+
+        <div id="scratch-card" onclick="revealCoupon()" style="position:relative;width:260px;height:140px;margin:0 auto;border-radius:20px;overflow:hidden;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,0.12)">
+          <div id="scratch-cover" style="position:absolute;inset:0;background:linear-gradient(135deg,#F7D44C,#E6C235);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.5s;z-index:2">
+            <span style="font-size:44px">👆</span>
+            <span style="font-size:15px;font-weight:800;color:#2C1810;margin-top:6px">Rasca tu cupón</span>
+          </div>
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,var(--azul),#1A6FA0);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1">
+            <span style="font-size:12px;color:rgba(255,255,255,0.8)">Tu descuento:</span>
+            <span style="font-size:52px;font-weight:900;color:#fff">30%</span>
+            <span style="font-size:13px;font-weight:700;color:var(--amarillo)">DESCUENTO ACTIVADO</span>
+          </div>
+        </div>
+
+        <div id="scratch-confetti" style="display:none;margin-top:20px">
+          <p style="font-size:18px;font-weight:900;color:var(--azul);margin-bottom:4px">🎉 ¡ES TUYO!</p>
+          <p style="font-size:13px;color:var(--gris);margin-bottom:16px">Hemos aplicado el 30% de descuento a tu plan anual.</p>
+          <div style="background:var(--azul);color:#fff;border-radius:14px;padding:16px;margin-bottom:20px">
+            <p style="font-size:13px;opacity:0.8;margin-bottom:4px">Plan Anual con descuento:</p>
+            <p><span style="font-size:16px;text-decoration:line-through;opacity:0.6">$29.99</span> <span style="font-size:32px;font-weight:900;color:var(--amarillo)">$20.99</span></p>
+          </div>
+          <button class="btn-next btn-cta" onclick="irAlCheckout()" style="width:100%">🐾 Obtener mi descuento →</button>
+          <p style="font-size:11px;color:var(--gris);margin-top:10px">🔒 Pago seguro · Cancela cuando quieras</p>
+        </div>
+
+        <button id="btn-skip-coupon" onclick="irAlCheckout()" style="background:none;border:none;color:var(--gris);font-size:12px;cursor:pointer;margin-top:20px;text-decoration:underline">No gracias, continuar sin descuento</button>
+      </div>
+    </div>
+
+  </div>
+  <!-- fin card -->
+
+</div>
+<!-- fin quiz-wrap -->
+
+<footer>
+  <p>© 2026 AZUL App · Adiestramiento canino con IA · <a href="mailto:azulapp.info@gmail.com" style="color:var(--azul)">azulapp.info@gmail.com</a></p>
+  <p style="margin-top:8px">Método basado en refuerzo positivo · Sin castigos · Diseñado por adiestradores profesionales</p>
+</footer>
+
+<script>
+  // ── Estado ──────────────────────────────────────────────────
+  const answers = {};
+  let currentStep = 1;
+  const TOTAL_STEPS = 12;
+
+  function guardarNombre() {
+    const nombre = document.getElementById('input-nombre').value.trim();
+    if (!nombre) { document.getElementById('input-nombre').style.borderColor='#EF4444'; return; }
+    answers.nombre = nombre;
+    document.querySelectorAll('.dog-name').forEach(el => el.textContent = nombre);
+    currentStep = 2;
+    showStep(2);
+  }
+  let planActivo = 'anual';
+
+  // ── Navegación ──────────────────────────────────────────────
+  function showStep(id) {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    const el = document.getElementById('step-' + id);
+    if (el) el.classList.add('active');
+
+    const isSpecial = id === 'loading' || id === 'resultado' || id === 'feedback' || id === 'cupon';
+    const isRefuerzo = id == '5' || id == '9';
+    document.getElementById('progress-section').style.display = isSpecial ? 'none' : 'block';
+    document.getElementById('btn-back').style.display = (currentStep > 1 && !isSpecial && !isRefuerzo) ? 'flex' : 'none';
+
+    // Cambiar texto del hero según etapa
+    const nombre = answers.nombre || 'tu perro';
+    const heroTexts = {
+      feedback: {
+        badge: '🐾 Análisis personalizado listo',
+        h1: 'Esto es lo que encontramos<br>sobre <span>' + nombre + '</span>.',
+        p: 'Basado en tus respuestas, aquí está el diagnóstico exacto de ' + nombre + '.',
+      },
+      resultado: {
+        badge: '🎉 Tu plan está listo',
+        h1: 'El camino de <span>' + nombre + '</span><br>hacia la calma.',
+        p: 'Empieza hoy — los primeros resultados se ven en menos de 7 días.',
+      },
+    };
+    const heroContent = heroTexts[id];
+    if (heroContent) {
+      document.getElementById('hero-badge').textContent = heroContent.badge;
+      document.getElementById('hero-h1').innerHTML = heroContent.h1;
+      document.getElementById('hero-p').textContent = heroContent.p;
+    } else if (!isSpecial) {
+      document.getElementById('hero-badge').textContent = '✨ Método validado por adiestradores profesionales';
+      document.getElementById('hero-h1').innerHTML = 'No fallaste como dueño.<br><span>Solo necesitas el método correcto.</span>';
+      document.getElementById('hero-p').textContent = 'De perro caótico a compañero perfecto — responde 10 preguntas y obtén tu plan personalizado en 2 minutos.';
+    }
+
+    if (!isSpecial) {
+      const pct = Math.round((currentStep / TOTAL_STEPS) * 100);
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('step-label').textContent = `Paso ${currentStep} de ${TOTAL_STEPS}`;
+      document.getElementById('step-pct').textContent = pct + '%';
+    }
+
+    if (id === 'feedback' || id === 'resultado') {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }
+
+  function goBack() {
+    if (currentStep > 1) {
+      currentStep--;
+      showStep(currentStep);
+    }
+  }
+
+  function selectOption(el, key, value, next) {
+    // Deselect others in same step
+    el.closest('.options').querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    answers[key] = value;
+
+    setTimeout(() => {
+      if (next === 'loading') {
+        startLoading();
+      } else {
+        currentStep = next;
+        showStep(next);
+      }
+    }, 280);
+  }
+
+  // ── Loading ──────────────────────────────────────────────────
+  const loadingMsgs = [
+    'Analizando el perfil de tu perro...',
+    'Calculando intensidad del plan...',
+    'Personalizando ejercicios por raza...',
+    'Aplicando modelo de IA...',
+    '¡Plan listo! 🎉',
+  ];
+
+  function startLoading() {
+    showStep('loading');
+    const bar = document.getElementById('loading-bar');
+    const msg = document.getElementById('loading-msg');
+    let pct = 0;
+    let msgIdx = 0;
+
+    const interval = setInterval(() => {
+      pct += 4;
+      bar.style.width = pct + '%';
+      if (pct % 20 === 0 && msgIdx < loadingMsgs.length) {
+        msg.textContent = loadingMsgs[msgIdx++];
+      }
+      if (pct >= 100) {
+        clearInterval(interval);
+        setTimeout(showFeedback, 400);
+      }
+    }, 60);
+  }
+
+  // ── Feedback personalizado ───────────────────────────────────
+  const razaData = {
+    pequeno: {
+      tag: 'Raza pequeña',
+      titulo: 'Los pequeños son los más subestimados',
+      entrenable: '91%',
+      texto: 'Los perros de raza pequeña sufren algo que los expertos llaman "síndrome del perro pequeño": sus dueños los cargan, los perdonan más y los exponen menos a límites claros. Resultado: un perro que cree que manda. No es culpa tuya — es algo que casi todos los dueños de razas pequeñas hacen sin darse cuenta. La buena noticia: con estructura consistente responden increíblemente rápido.',
+      breeds: ['chihuahua', 'yorkshire', 'poodle'],
+    },
+    mediano: {
+      tag: 'Raza mediana',
+      titulo: 'Inteligentes, energéticos y muy entrenables',
+      entrenable: '94%',
+      texto: 'Los perros medianos están en el punto ideal: suficiente energía para aprender y suficiente tamaño para que valga la pena. Son de las razas más inteligentes del mundo — Beagles, Boxers, Cockers aprenden comandos en promedio 15 repeticiones menos que otras razas. El reto es que esa misma inteligencia los hace aburrirse rápido y buscar su propia "diversión" si no se estimulan correctamente.',
+      breeds: ['beagle', 'boxer', 'spaniel'],
+    },
+    grande: {
+      tag: 'Raza grande',
+      titulo: 'Su tamaño amplifica todo — lo bueno y lo malo',
+      entrenable: '89%',
+      texto: 'Un Labrador, Golden o Pastor Alemán bien entrenado es el compañero perfecto. Uno sin estructura es un problema de 30+ kilos que se mueve a 40km/h. Los perros grandes necesitan más consistencia que cualquier otra categoría: si un día le permites algo que otro día no, el mensaje se borra. Una vez que entienden las reglas, sin embargo, su lealtad y su capacidad de aprendizaje no tiene comparación.',
+      breeds: ['labrador', 'retriever/golden', 'germanshepherd'],
+    },
+    mestizo: {
+      tag: 'Mestizo / Criollo',
+      titulo: 'El gen más resiliente del mundo canino',
+      entrenable: '96%',
+      texto: 'Los estudios lo confirman: los mestizos tienen menor predisposición genética a enfermedades y mayor flexibilidad cognitiva que muchas razas puras. Sin los sesgos de siglos de selección forzada, aprenden de forma más natural e intuitiva. Tu perro mestizo tiene el potencial de superar en entrenamiento a perros "de pedigrí" — solo necesita el método correcto y consistencia.',
+      breeds: null,
+    },
+  };
+
+  const problemaData = {
+    ladrar: {
+      texto: 'El ladrido excesivo casi nunca es "mal carácter" — es comunicación frustrada. Tu perro ladra porque aprendió que funciona: alguien se fue, alguien llegó, alguien le hizo caso. Cada vez que el ladrido logró algo, se reforzó. El protocolo de AZUL interrumpe ese ciclo con una técnica de tres pasos que extingue el ladrido reactivo en 7–14 días sin gritar ni castigar.',
+      dias: 14,
+      alerta: 'El ladrido sin trabajar se intensifica con el tiempo. Los perros desarrollan lo que se llama "ladrido compulsivo" — ya no ladran por una razón, ladran por hábito. A los 2 años sin intervención, el comportamiento se vuelve 3x más difícil de modificar.',
+    },
+    ansiedad: {
+      texto: 'La ansiedad de separación es la causa #1 de abandono de mascotas. Tu perro no destruye por maldad — literalmente entra en pánico cuando te vas. Su cerebro libera cortisol igual que el tuyo en una emergencia. El programa de AZUL usa desensibilización sistemática: enseñarle que "te vas" predice "regresas", no "desapareces para siempre".',
+      dias: 21,
+      alerta: 'Sin intervención, la ansiedad de separación empeora progresivamente. Los perros desarrollan comportamientos autolesivos (lamerse hasta sangrar, golpearse) y el estrés crónico acorta su esperanza de vida hasta en 2 años según estudios veterinarios recientes.',
+    },
+    jalar: {
+      texto: 'Tu perro jala la correa porque nadie le enseñó que caminar a tu lado es más interesante que correr adelante. Para él, jalar funciona: llega antes a los olores, a los perros, a todo. La técnica de AZUL invierte el incentivo: parar cada vez que jala le enseña que la única forma de avanzar es caminar junto a ti.',
+      dias: 10,
+      alerta: 'La tracción constante en la correa daña la tráquea y las vértebras cervicales de tu perro, especialmente en razas pequeñas. También aumenta la reactividad: un perro que siempre va "lanzado" hacia el mundo desarrolla más agresividad con otros perros.',
+    },
+    agresion: {
+      texto: 'La agresividad en perros tiene una causa en el 95% de los casos: miedo o inseguridad, no dominancia. Tu perro no ataca porque quiere — ataca porque no sabe cómo manejar la situación de otra forma. El programa de AZUL trabaja la raíz emocional del comportamiento, no solo la supresión del síntoma.',
+      dias: 30,
+      alerta: 'La agresividad sin trabajar escala. Un perro que hoy gruñe, mañana muerde. El 78% de mordidas caninas ocurren en perros que ya habían mostrado señales previas ignoradas. El tiempo de actuar es ahora.',
+    },
+    saltar: {
+      texto: 'Tu perro salta porque en algún momento funcionó: alguien lo acarició, alguien rió, alguien le prestó atención. Cada "ay, qué lindo" mientras saltaba reforzó el comportamiento. La solución no es castigarlo — es retirar completamente la atención cuando salta y premiar efusivamente cuando tiene las cuatro patas en el suelo.',
+      dias: 7,
+      alerta: 'Un perro que salta puede derribar a niños o adultos mayores y causar lesiones serias. Más allá del peligro físico, el comportamiento crea ansiedad social: muchas familias dejan de invitar personas a su casa o evitan paseos por vergüenza.',
+    },
+    general: {
+      texto: 'Querer mejorar de forma integral es la señal de un dueño comprometido. Los perros que reciben entrenamiento de obediencia general son 60% menos propensos a desarrollar problemas de comportamiento en el futuro. Estás invirtiendo en años de convivencia tranquila.',
+      dias: 21,
+      alerta: 'Los perros sin estimulación mental y entrenamiento básico acumulan energía no canalizada que inevitablemente se convierte en problemas: destructividad, ladridos, ansiedad. El entrenamiento no es opcional — es necesidad básica como el alimento y el agua.',
+    },
+  };
+
+  const emocionData = {
+    frustrado: 'Sentir frustración no significa que seas mal dueño — significa que te importa. La frustración aparece cuando hay una brecha entre lo que quieres y lo que sabes cómo hacer. AZUL cierra esa brecha: con el método correcto, dejarás de improvisar y empezarás a entender exactamente por qué tu perro hace lo que hace.',
+    culpa: 'Nada de esto es tu culpa. Nadie nos enseña a ser dueños de perros — se supone que "se sabe". Pero el comportamiento canino tiene ciencia detrás: hay razones neurológicas y psicológicas para todo lo que hace tu perro. Una vez que las entiendes, la culpa desaparece y la conexión mejora naturalmente.',
+    preocupada: 'Tu preocupación es completamente válida — y el hecho de que estés aquí buscando soluciones significa que no vas a dejar que esto escale. Los problemas de comportamiento tratados a tiempo se resuelven en semanas. Los mismos problemas ignorados pueden tomar meses o años. Estás en el momento correcto.',
+    resignada: 'No existe el perro "imposible de entrenar". Lo que sí existe son métodos incorrectos aplicados de forma inconsistente. Después de ver resultados con AZUL, muchos dueños describen el momento en que algo "hace clic" en su perro como uno de los más emocionantes de su relación. Ese momento te espera.',
+  };
+
+  // Fotos verificadas por raza — Dog CEO API con razas específicas y bonitas
+  const photosByTamano = {
+    pequeno: ['dogs/pequeno1.jpg', 'dogs/pequeno2.jpg'],
+    mediano: ['dogs/mediano1.jpg', 'dogs/mediano2.jpg'],
+    grande:  ['dogs/grande1.jpg', 'dogs/grande2.jpg'],
+    mestizo: ['dogs/mestizo1.jpg', 'dogs/mestizo2.jpg'],
+  };
+
+  function fetchDogPhoto(tamano) {
+    const photos = photosByTamano[tamano] || photosByTamano.mestizo;
+    return photos[Math.floor(Math.random() * photos.length)];
+  }
+
+  async function showFeedback() {
+    try {
+      const tamano = answers.tamano || 'mediano';
+      const problema = answers.problema || 'general';
+      const emocion = answers.emocion_fallo || 'preocupada';
+
+      const raza = razaData[tamano] || razaData.mediano;
+      const prob = problemaData[problema] || problemaData.general;
+      const emoText = emocionData[emocion] || emocionData.preocupada;
+
+      // Foto
+      try {
+        const img = document.getElementById('feedback-img');
+        img.src = fetchDogPhoto(tamano);
+      } catch(e) { console.warn('foto error', e); }
+
+      // Textos
+      const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+      set('feedback-raza-tag', raza.tag);
+      set('feedback-photo-title', raza.titulo);
+      set('fb-score-entrenable', raza.entrenable);
+      set('fb-score-tiempo', prob.dias);
+      set('fb-dias-plan', prob.dias);
+      set('fb-raza-texto', raza.texto);
+      set('fb-problema-texto', prob.texto);
+      set('fb-emocion-texto', emoText);
+      set('fb-alerta-texto', prob.alerta);
+    } catch(e) { console.error('showFeedback error:', e); }
+
+    showStep('feedback');
+  }
+
+  // ── Resultado personalizado ───────────────────────────────────
+  function getDiagnostico(problema, nombre, tamano, edad, tiempo) {
+    const n = nombre || 'tu perro';
+    const tiempoTexto = { reciente: 'pocas semanas', meses: 'varios meses', anio: 'casi un año', mas: 'más de un año' };
+    const t = tiempoTexto[tiempo] || 'un tiempo';
+
+    const diagnosticos = {
+      ladrar: {
+        badge: '🔊 LADRIDO REACTIVO — Nivel de urgencia: ALTO',
+        titulo: `${n} necesita el Protocolo Silencio`,
+        desc: `Detectamos que ${n} lleva ${t} con ladrido reactivo. Este comportamiento se refuerza cada día que pasa sin intervención. Nuestro protocolo de 14 días ataca la raíz del problema — no el síntoma.`,
+      },
+      ansiedad: {
+        badge: '😰 ANSIEDAD DE SEPARACIÓN — Nivel de urgencia: CRÍTICO',
+        titulo: `${n} necesita el Protocolo Seguridad`,
+        desc: `${n} muestra signos claros de ansiedad de separación. Cada vez que sales, su cerebro entra en modo pánico. Nuestro programa de 21 días le enseña que estar solo es seguro, no aterrador.`,
+      },
+      jalar: {
+        badge: '🦮 TRACCIÓN COMPULSIVA — Nivel de urgencia: MODERADO',
+        titulo: `${n} necesita el Protocolo Paseo`,
+        desc: `${n} ha aprendido que jalar funciona: lo lleva a donde quiere ir. Nuestro método de 10 días invierte esa ecuación para que caminar a tu lado sea la mejor opción.`,
+      },
+      agresion: {
+        badge: '😤 REACTIVIDAD CANINA — Nivel de urgencia: MUY ALTO',
+        titulo: `${n} necesita el Protocolo Calma`,
+        desc: `La reactividad de ${n} probablemente viene del miedo, no de la dominancia. Nuestro protocolo de 30 días trabaja la raíz emocional del comportamiento con desensibilización gradual y segura.`,
+      },
+      saltar: {
+        badge: '🦘 EXCITACIÓN DESCONTROLADA — Nivel de urgencia: MODERADO',
+        titulo: `${n} necesita el Protocolo Saludos`,
+        desc: `${n} salta porque aprendió que funciona — alguien le dio atención. En solo 7 días le enseñamos que las 4 patas en el suelo le dan TODO lo que quiere.`,
+      },
+      general: {
+        badge: '📋 EVALUACIÓN COMPLETA — Potencial: MUY ALTO',
+        titulo: `Plan integral diseñado para ${n}`,
+        desc: `${n} tiene un excelente potencial de entrenamiento. Nuestro plan de 21 días cubre obediencia, comandos, comunicación y vínculo — todo personalizado a su perfil.`,
+      },
+    };
+    return diagnosticos[problema] || diagnosticos.general;
+  }
+
+  function showResultado() {
+    const problema = answers.problema || 'general';
+    const nombre = answers.nombre || 'tu perro';
+    const diag = getDiagnostico(problema, nombre, answers.tamano, answers.edad, answers.tiempo);
+
+    const setEl = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+    setEl('res-badge', diag.badge);
+    setEl('res-titulo', diag.titulo);
+    setEl('res-descripcion', diag.desc);
+    document.querySelectorAll('.dog-name').forEach(el => el.textContent = nombre);
+
+    showStep('resultado');
+    startCountdown();
+    if (typeof fbq !== 'undefined') fbq('track', 'CompleteRegistration');
+  }
+
+  // ── Timer y contador social ──────────────────────────────────
+  let timerStarted = false;
+  function startCountdown() {
+    if (timerStarted) return;
+    timerStarted = true;
+    let seconds = 15 * 60;
+    const el = document.getElementById('countdown-timer');
+    if (!el) return;
+    const tick = setInterval(() => {
+      seconds--;
+      if (seconds <= 0) { clearInterval(tick); seconds = 0; }
+      const m = Math.floor(seconds / 60);
+      const s = seconds % 60;
+      el.textContent = `${m}:${s.toString().padStart(2, '0')}`;
+    }, 1000);
+  }
+
+  // Contador de personas random
+  setInterval(() => {
+    const el = document.getElementById('viewers-count');
+    if (el) el.textContent = Math.floor(Math.random() * 30) + 30;
+  }, 8000);
+
+  // ── Cupón ──────────────────────────────────────────────
+  let couponShown = false;
+  let couponRevealed = false;
+
+  function revealCoupon() {
+    couponRevealed = true;
+    const cover = document.getElementById('scratch-cover');
+    const confetti = document.getElementById('scratch-confetti');
+    const skipBtn = document.getElementById('btn-skip-coupon');
+    cover.style.opacity = '0';
+    setTimeout(() => {
+      cover.style.display = 'none';
+      confetti.style.display = 'block';
+      if (skipBtn) skipBtn.style.display = 'none';
+    }, 500);
+  }
+
+  function selectPlan(plan) {
+    planActivo = plan;
+    ['trial','mensual','anual'].forEach(p => {
+      document.getElementById('plan-' + p).classList.toggle('selected-plan', p === plan);
+    });
+  }
+
+  // ── Checkout Hotmart ──────────────────────────────────────────
+  const CHECKOUT_URLS = {
+    trial:   'https://pay.hotmart.com/B106433359C?off=qzf5mko9&checkoutMode=10',
+    mensual: 'https://pay.hotmart.com/B106433359C?off=h39ub0hm&checkoutMode=10',
+    anual:   'https://pay.hotmart.com/B106433359C?off=7li4uaoe&checkoutMode=10',
+  };
+
+  function irAlCheckout() {
+    if (planActivo === 'anual' && !couponShown) {
+      couponShown = true;
+      showStep('cupon');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      return;
+    }
+    let url = CHECKOUT_URLS[planActivo];
+    if (planActivo === 'anual' && couponRevealed) {
+      url = 'https://pay.hotmart.com/B106433359C?off=tu2bfpqx&checkoutMode=10';
+    }
+    const valores = { trial: 1.00, mensual: 4.99, anual: 29.99 };
+    if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { value: valores[planActivo] || 4.99, currency: 'USD' });
+    window.location.href = url;
+  }
+</script>
+</body>
+</html>
