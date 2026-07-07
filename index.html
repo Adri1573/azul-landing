@@ -1009,9 +1009,9 @@
       <div class="planes-grid">
 
         <div class="plan-opt selected-plan" id="plan-trial" onclick="selectPlan('trial')" style="position:relative;overflow:visible;border:3px solid var(--naranja);box-shadow:0 4px 20px rgba(255,107,53,0.25)">
-          <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--naranja);color:#fff;font-size:11px;font-weight:900;padding:4px 14px;border-radius:20px;white-space:nowrap">🔥 EMPIEZA POR $1.00</div>
+          <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--naranja);color:#fff;font-size:11px;font-weight:900;padding:4px 14px;border-radius:20px;white-space:nowrap">🔥 EMPIEZA POR $2.99</div>
           <div class="plan-opt-nombre" style="font-size:14px;margin-top:8px;color:var(--naranja);font-weight:900">7 días de prueba</div>
-          <div class="plan-opt-precio" style="font-size:38px;color:var(--naranja)">$1.00<span style="font-size:14px;font-weight:500;color:var(--gris)">/7 días</span></div>
+          <div class="plan-opt-precio" style="font-size:38px;color:var(--naranja)">$2.99<span style="font-size:14px;font-weight:500;color:var(--gris)">/7 días</span></div>
           <div class="plan-opt-sub" style="font-weight:700;color:var(--marron)">Luego $4.99/mes · Solo por hoy · Cancela cuando quieras</div>
         </div>
 
@@ -1495,7 +1495,7 @@
     if (planActivo === 'anual' && couponRevealed) {
       url = 'https://pay.hotmart.com/B106433359C?off=tu2bfpqx&checkoutMode=10';
     }
-    const valores = { trial: 1.00, mensual: 4.99, anual: 29.99 };
+    const valores = { trial: 2.99, mensual: 4.99, anual: 29.99 };
     if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { value: valores[planActivo] || 4.99, currency: 'USD' });
     window.location.href = url;
   }
