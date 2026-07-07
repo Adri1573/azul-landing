@@ -38,15 +38,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --azul: #60B8E8;
-      --azul-dark: #3a9fd4;
+      --azul: #1E7FD8;
+      --azul-dark: #1560A8;
       --marron: #2C1810;
-      --amarillo: #F7D44C;
+      --amarillo: #FFD700;
       --crema: #F5EAD6;
       --gris: #6B7280;
       --gris-claro: #F3F4F6;
       --rojo: #EF4444;
       --verde: #10B981;
+      --naranja: #FF6B35;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -83,7 +84,7 @@
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(160deg, var(--azul) 0%, #3a9fd4 100%);
+      background: linear-gradient(160deg, var(--azul) 0%, #1560A8 100%);
       padding: 60px 20px 80px;
       text-align: center;
       position: relative;
@@ -253,15 +254,15 @@
     .btn-next:disabled { background: #B0D4EE; cursor: not-allowed; transform: none; }
 
     .btn-cta {
-      background: var(--amarillo);
-      color: var(--marron);
+      background: var(--naranja);
+      color: #fff;
       font-size: 18px;
       border-radius: 50px;
       padding: 18px;
       font-weight: 900;
-      box-shadow: 0 6px 20px rgba(247,212,76,0.45);
+      box-shadow: 0 6px 24px rgba(255,107,53,0.5);
     }
-    .btn-cta:hover { background: #f0c930; }
+    .btn-cta:hover { background: #e85a25; }
 
     /* ── FEEDBACK ── */
     .feedback-photo-wrap {
@@ -1007,11 +1008,11 @@
       </div>
       <div class="planes-grid">
 
-        <div class="plan-opt" id="plan-trial" onclick="selectPlan('trial')" style="position:relative;overflow:visible">
-          <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#10B981;color:#fff;font-size:11px;font-weight:900;padding:4px 14px;border-radius:20px;white-space:nowrap">🐾 PRUEBA 7 DÍAS</div>
-          <div class="plan-opt-nombre" style="font-size:14px;margin-top:8px">Trial</div>
-          <div class="plan-opt-precio" style="font-size:32px">$1.00<span style="font-size:14px;font-weight:500;color:var(--gris)">/7 días</span></div>
-          <div class="plan-opt-sub">Luego $4.99/mes · Cancela cuando quieras</div>
+        <div class="plan-opt selected-plan" id="plan-trial" onclick="selectPlan('trial')" style="position:relative;overflow:visible;border:3px solid var(--naranja);box-shadow:0 4px 20px rgba(255,107,53,0.25)">
+          <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--naranja);color:#fff;font-size:11px;font-weight:900;padding:4px 14px;border-radius:20px;white-space:nowrap">🔥 EMPIEZA POR $1.00</div>
+          <div class="plan-opt-nombre" style="font-size:14px;margin-top:8px;color:var(--naranja);font-weight:900">7 días de prueba</div>
+          <div class="plan-opt-precio" style="font-size:38px;color:var(--naranja)">$1.00<span style="font-size:14px;font-weight:500;color:var(--gris)">/7 días</span></div>
+          <div class="plan-opt-sub" style="font-weight:700;color:var(--marron)">Luego $4.99/mes · Solo por hoy · Cancela cuando quieras</div>
         </div>
 
         <div class="plan-opt" id="plan-mensual" onclick="selectPlan('mensual')">
@@ -1020,7 +1021,7 @@
           <div class="plan-opt-sub">Sin compromiso, cancela cuando quieras</div>
         </div>
 
-        <div class="plan-opt selected-plan plan-anual-card" id="plan-anual" onclick="selectPlan('anual')">
+        <div class="plan-opt plan-anual-card" id="plan-anual" onclick="selectPlan('anual')">
           <div class="anual-popular-badge">⭐ MÁS POPULAR — AHORRA 50%</div>
           <div class="plan-opt-nombre" style="font-size:14px;margin-top:8px">Anual</div>
           <div style="font-size:14px;color:var(--gris);text-decoration:line-through;margin-bottom:2px">$59.99/año</div>
@@ -1153,7 +1154,7 @@
     currentStep = 2;
     showStep(2);
   }
-  let planActivo = 'anual';
+  let planActivo = 'trial';
 
   // ── Navegación ──────────────────────────────────────────────
   function showStep(id) {
