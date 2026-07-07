@@ -419,18 +419,30 @@
       letter-spacing: 0.5px;
     }
 
-    .plan-items { display: grid; gap: 10px; margin-bottom: 24px; }
+    .plan-items { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
     .plan-item {
       display: flex;
+      flex-direction: column;
       align-items: flex-start;
-      gap: 12px;
-      background: var(--gris-claro);
-      border-radius: 14px;
-      padding: 12px 14px;
+      gap: 8px;
+      background: #fff;
+      border-radius: 18px;
+      padding: 16px 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      border-top: 3px solid var(--azul);
     }
-    .plan-item .pi-emoji { font-size: 20px; margin-top: 1px; }
-    .plan-item .pi-text { font-size: 13px; line-height: 1.4; }
-    .plan-item .pi-text strong { display: block; font-size: 14px; color: var(--marron); }
+    .plan-item .pi-emoji {
+      font-size: 28px;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #EBF5FF, #D1E9FF);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .plan-item .pi-text { font-size: 12px; line-height: 1.4; color: var(--gris); }
+    .plan-item .pi-text strong { display: block; font-size: 13px; color: var(--marron); margin-bottom: 3px; font-weight: 800; }
 
     .garantia {
       text-align: center;
@@ -886,8 +898,17 @@
       <p class="loading-msgs" id="loading-msg">Procesando perfil...</p>
     </div>
 
-    <!-- FEEDBACK PERSONALIZADO -->
-    <div class="step" id="step-feedback">
+    <!-- RESULTADO UNIFICADO -->
+    <div class="step" id="step-resultado">
+
+      <!-- Diagnóstico -->
+      <div class="resultado-header">
+        <div class="diagnosis-tag" id="res-badge">DIAGNÓSTICO PERSONALIZADO</div>
+        <h2 id="res-titulo">Plan listo para tu perro 🎉</h2>
+        <p id="res-descripcion">Basado en sus respuestas, creamos el plan perfecto.</p>
+      </div>
+
+      <!-- Foto + scores -->
       <div class="feedback-photo-wrap">
         <img class="feedback-photo" id="feedback-img" src="" alt="Tu tipo de perro" loading="lazy" decoding="async" />
         <div class="feedback-photo-overlay">
@@ -907,43 +928,26 @@
         </div>
       </div>
 
+      <!-- Insights personalizados -->
       <div class="feedback-insight" id="fb-raza-insight">
         <div class="feedback-insight-title">🐕 Sobre tu tipo de perro</div>
         <p id="fb-raza-texto"></p>
       </div>
-
       <div class="feedback-insight" id="fb-problema-insight">
         <div class="feedback-insight-title">🎯 Por qué ocurre este comportamiento</div>
         <p id="fb-problema-texto"></p>
       </div>
-
       <div class="feedback-insight emocional">
         <div class="feedback-insight-title">💛 Lo que sentiste tiene sentido</div>
         <p id="fb-emocion-texto"></p>
       </div>
-
       <div class="feedback-insight alerta">
         <div class="feedback-insight-title">⚠️ Qué pasa si no se trabaja ahora</div>
         <p id="fb-alerta-texto"></p>
       </div>
 
-      <div class="feedback-cta-wrap">
-        <strong>El plan de <span class="dog-name">tu perro</span> está listo 🎉</strong>
-        <p>AZUL creó un programa de <span id="fb-dias-plan">21</span> días basado exactamente en el perfil de <span class="dog-name">tu perro</span>, su comportamiento y tu rutina diaria.</p>
-        <button class="btn-ver-plan" onclick="showResultado()">Ver mi plan y obtener acceso →</button>
-      </div>
-    </div>
-
-    <!-- RESULTADO -->
-    <div class="step" id="step-resultado">
-
-      <div class="resultado-header">
-        <div class="diagnosis-tag" id="res-badge">DIAGNÓSTICO PERSONALIZADO</div>
-        <h2 id="res-titulo">Plan listo para tu perro 🎉</h2>
-        <p id="res-descripcion">Basado en sus respuestas, creamos el plan perfecto.</p>
-      </div>
-
-      <p style="font-size:20px;font-weight:900;color:var(--azul-dark);margin-bottom:16px;text-align:center">🐾 Tu plan incluye:</p>
+      <!-- Features -->
+      <p style="font-size:20px;font-weight:900;color:var(--azul-dark);margin:28px 0 16px;text-align:center">🐾 Todo lo que incluye tu plan:</p>
       <div class="plan-items">
         <div class="plan-item">
           <span class="pi-emoji">🤖</span>
@@ -1370,7 +1374,7 @@
       set('fb-alerta-texto', prob.alerta);
     } catch(e) { console.error('showFeedback error:', e); }
 
-    showStep('feedback');
+    showResultado();
   }
 
   // ── Resultado personalizado ───────────────────────────────────
