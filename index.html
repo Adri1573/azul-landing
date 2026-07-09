@@ -518,6 +518,13 @@
       background: #EBF5FC;
       box-shadow: 0 4px 16px rgba(96,184,232,0.25);
     }
+    #plan-trial.selected-plan {
+      border-color: var(--naranja);
+      background: #FFF4EF;
+      box-shadow: 0 4px 20px rgba(255,107,53,0.25);
+    }
+    #plan-trial.selected-plan .plan-opt-nombre,
+    #plan-trial.selected-plan .plan-opt-precio { color: var(--naranja); }
     .plan-opt-badge {
       font-size: 10px;
       font-weight: 900;
@@ -1179,7 +1186,7 @@
       </div>
       <div class="planes-grid">
 
-        <div class="plan-opt selected-plan" id="plan-trial" onclick="selectPlan('trial')" style="position:relative;overflow:visible;border:3px solid var(--naranja);box-shadow:0 4px 20px rgba(255,107,53,0.25)">
+        <div class="plan-opt selected-plan" id="plan-trial" onclick="selectPlan('trial');irAlCheckout()" style="position:relative;overflow:visible;cursor:pointer">
           <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--naranja);color:#fff;font-size:11px;font-weight:900;padding:4px 14px;border-radius:20px;white-space:nowrap">🔥 EMPIEZA POR $2.99</div>
           <div class="plan-opt-nombre" style="font-size:14px;margin-top:8px;color:var(--naranja);font-weight:900">7 días de prueba</div>
           <div class="plan-opt-precio" style="font-size:38px;color:var(--naranja)">$2.99<span style="font-size:14px;font-weight:500;color:var(--gris)">/7 días</span></div>
