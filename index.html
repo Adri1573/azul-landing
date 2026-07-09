@@ -1485,6 +1485,11 @@
       dias: 7,
       alerta: 'Un perro que salta puede derribar a niños o adultos mayores y causar lesiones serias. Más allá del peligro físico, el comportamiento crea ansiedad social: muchas familias dejan de invitar personas a su casa o evitan paseos por vergüenza.',
     },
+    llora: {
+      texto: 'Los gemidos y llanto constante son una señal de ansiedad real, no de manipulación. Tu perro no llora para molestarte — su sistema nervioso está en alerta permanente. Sin intervención, esta ansiedad se intensifica y puede derivar en comportamientos destructivos o autolesivos.',
+      dias: 21,
+      alerta: 'La ansiedad no tratada en perros es progresiva. Un perro que hoy llora, mañana puede empezar a destruir, dejar de comer o desarrollar problemas de salud por el estrés crónico. Cuanto antes se trabaje, más fácil y rápida es la recuperación.',
+    },
     general: {
       texto: 'Querer mejorar de forma integral es la señal de un dueño comprometido. Los perros que reciben entrenamiento de obediencia general son 60% menos propensos a desarrollar problemas de comportamiento en el futuro. Estás invirtiendo en años de convivencia tranquila.',
       dias: 21,
@@ -1552,34 +1557,39 @@
 
     const diagnosticos = {
       ladrar: {
-        badge: '🔊 LADRIDO REACTIVO — Nivel de urgencia: ALTO',
-        titulo: `${n} necesita el Protocolo Silencio`,
-        desc: `Detectamos que ${n} lleva ${t} con ladrido reactivo. Este comportamiento se refuerza cada día que pasa sin intervención. Nuestro protocolo de 14 días ataca la raíz del problema — no el síntoma.`,
+        badge: '🔊 LADRIDO REACTIVO — Acción requerida',
+        titulo: `${n} lleva ${t} ladrando — y cada día lo refuerza más`,
+        desc: `Los vecinos se quejan, las visitas se incomodan y tú ya no sabes qué hacer. El ladrido de ${n} no es "mal carácter" — es un hábito aprendido que tiene solución en 7 a 14 días con el protocolo correcto.`,
       },
       ansiedad: {
-        badge: '😰 ANSIEDAD DE SEPARACIÓN — Nivel de urgencia: CRÍTICO',
-        titulo: `${n} necesita el Protocolo Seguridad`,
-        desc: `${n} muestra signos claros de ansiedad de separación. Cada vez que sales, su cerebro entra en modo pánico. Nuestro programa de 21 días le enseña que estar solo es seguro, no aterrador.`,
+        badge: '😰 DESTRUCCIÓN POR ANSIEDAD — Urgencia alta',
+        titulo: `${n} destruye porque sufre, no porque es malo`,
+        desc: `Llevas ${t} encontrando destrozos cada vez que salís. ${n} no lo hace por rebeldía — entra en pánico cuando se queda solo. Nuestro plan ataca esa ansiedad desde la raíz para que puedas salir tranquilo.`,
       },
       jalar: {
-        badge: '🦮 TRACCIÓN COMPULSIVA — Nivel de urgencia: MODERADO',
-        titulo: `${n} necesita el Protocolo Paseo`,
-        desc: `${n} ha aprendido que jalar funciona: lo lleva a donde quiere ir. Nuestro método de 10 días invierte esa ecuación para que caminar a tu lado sea la mejor opción.`,
+        badge: '🦮 CORREA FUERA DE CONTROL — Solución en 10 días',
+        titulo: `Los paseos de ${n} son una batalla — pero tienen solución`,
+        desc: `Llevas ${t} luchando en cada paseo. ${n} jala porque aprendió que funciona. Con la técnica correcta, en 10 días puede aprender que caminar a tu lado es mejor que correr sin control.`,
       },
       agresion: {
-        badge: '😤 REACTIVIDAD CANINA — Nivel de urgencia: MUY ALTO',
-        titulo: `${n} necesita el Protocolo Calma`,
-        desc: `La reactividad de ${n} probablemente viene del miedo, no de la dominancia. Nuestro protocolo de 30 días trabaja la raíz emocional del comportamiento con desensibilización gradual y segura.`,
+        badge: '⚠️ AGRESIVIDAD — Actúa antes de que escale',
+        titulo: `La agresividad de ${n} no puede esperar más`,
+        desc: `Llevas ${t} con este miedo. Un perro que hoy gruñe o muerde, mañana puede causar un incidente serio. La agresividad tiene raíz en el miedo — no en la maldad — y tiene solución si se trabaja ahora.`,
       },
       saltar: {
-        badge: '🦘 EXCITACIÓN DESCONTROLADA — Nivel de urgencia: MODERADO',
-        titulo: `${n} necesita el Protocolo Saludos`,
-        desc: `${n} salta porque aprendió que funciona — alguien le dio atención. En solo 7 días le enseñamos que las 4 patas en el suelo le dan TODO lo que quiere.`,
+        badge: '🦘 SALTOS DESCONTROLADOS — Riesgo real',
+        titulo: `${n} ya derribó o asustó a alguien — es hora de parar`,
+        desc: `Llevas ${t} pidiendo disculpas por ${n}. Ya no es gracioso — es un peligro para niños y adultos mayores. En 7 días puede aprender que las 4 patas en el suelo le dan toda la atención que busca.`,
+      },
+      llora: {
+        badge: '😢 ANSIEDAD SEVERA — Necesita intervención',
+        titulo: `${n} llora porque nadie le ha enseñado a estar tranquilo`,
+        desc: `Llevas ${t} sin dormir bien por los gemidos de ${n}. Eso no es "su personalidad" — es ansiedad que se puede trabajar. Con el protocolo correcto, en 2 a 3 semanas puede aprender a estar calmado.`,
       },
       general: {
-        badge: '📋 EVALUACIÓN COMPLETA — Potencial: MUY ALTO',
-        titulo: `Plan integral diseñado para ${n}`,
-        desc: `${n} tiene un excelente potencial de entrenamiento. Nuestro plan de 21 días cubre obediencia, comandos, comunicación y vínculo — todo personalizado a su perfil.`,
+        badge: '📋 PERFIL COMPLETO — Potencial de mejora: ALTO',
+        titulo: `${n} puede ser el perro que siempre quisiste`,
+        desc: `Tienes las ganas de mejorar — eso es lo más importante. Con un plan estructurado de obediencia y vínculo, en 21 días notarás una diferencia real en cómo ${n} te escucha y cómo conviven.`,
       },
     };
     return diagnosticos[problema] || diagnosticos.general;
