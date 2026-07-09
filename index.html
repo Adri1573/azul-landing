@@ -673,8 +673,8 @@
 
     <!-- STEP 1: Nombre del perro (NEW) -->
     <div class="step active" id="step-1">
-      <p class="step-q">El nombre de tu perro es... 🐶</p>
-      <p class="step-sub">Lo usaremos para personalizar todo tu plan de entrenamiento.</p>
+      <p class="step-q">¿Cómo se llama tu perro? 🐶</p>
+      <p class="step-sub">Vamos a crear un plan 100% para él — empecemos por su nombre.</p>
       <div style="margin:20px 0">
         <input type="text" id="input-nombre" placeholder="Escribe el nombre aquí..." style="width:100%;padding:16px 20px;border:2px solid #E5E7EB;border-radius:50px;font-size:16px;font-family:inherit;color:#2C1810;outline:none;transition:border 0.2s;text-align:center" onfocus="this.style.borderColor='#60B8E8'" onblur="this.style.borderColor='#E5E7EB'" />
       </div>
@@ -683,8 +683,8 @@
 
     <!-- STEP 2: Edad del perro -->
     <div class="step" id="step-2">
-      <p class="step-q">¿Qué edad tiene <span class="dog-name">tu perro</span>? 🐶</p>
-      <p class="step-sub">La edad cambia completamente el enfoque del entrenamiento.</p>
+      <p class="step-q">¿Qué edad tiene <span class="dog-name">tu perro</span>?</p>
+      <p class="step-sub">Los problemas de comportamiento se arraigan con el tiempo — saber su edad nos dice qué tan urgente es actuar.</p>
       <div class="options two-col">
         <div class="option" onclick="selectOption(this, 'edad', 'cachorro', 3)">
           <span class="opt-emoji">🐶</span>
@@ -747,11 +747,11 @@
     <!-- STEP 5: REFUERZO 1 (NEW) -->
     <div class="step" id="step-5">
       <div style="text-align:center;padding:10px 0">
-        <p style="font-size:20px;font-weight:900;color:var(--marron);line-height:1.4;margin-bottom:6px">Estamos personalizando la experiencia para <span class="dog-name" style="color:var(--azul)">tu perro</span> ✨</p>
-        <p style="font-size:14px;color:var(--gris);margin-bottom:24px">Esto es lo que la ciencia dice sobre el entrenamiento canino:</p>
+        <p style="font-size:20px;font-weight:900;color:var(--marron);line-height:1.4;margin-bottom:6px">Ya vemos el problema de <span class="dog-name" style="color:var(--azul)">tu perro</span> con claridad 🎯</p>
+        <p style="font-size:14px;color:var(--gris);margin-bottom:24px">Mientras terminamos de analizar, mira esto:</p>
         <div style="background:linear-gradient(135deg,var(--azul),#2B8CC4);color:#fff;border-radius:20px;padding:28px 24px;margin-bottom:24px;box-shadow:0 8px 24px rgba(96,184,232,0.3)">
-          <p style="font-size:13px;font-weight:900;color:var(--amarillo);letter-spacing:2px;margin-bottom:12px">INFORMACIÓN PRO</p>
-          <p style="font-size:18px;font-style:italic;line-height:1.5;font-weight:600">"Los perros que reciben entrenamiento basado en refuerzo positivo aprenden <span style="color:var(--amarillo);font-weight:900">2x más rápido</span> que con métodos tradicionales."</p>
+          <p style="font-size:13px;font-weight:900;color:var(--amarillo);letter-spacing:2px;margin-bottom:12px">¿SABÍAS ESTO?</p>
+          <p style="font-size:18px;font-style:italic;line-height:1.5;font-weight:600">"Un comportamiento que no se corrige a tiempo se vuelve <span style="color:var(--amarillo);font-weight:900">3 veces más difícil</span> de cambiar después de los 2 años."</p>
         </div>
         <button class="btn-next" onclick="currentStep=6;showStep(6)" style="font-size:18px;padding:18px">Continuar →</button>
       </div>
@@ -759,28 +759,28 @@
 
     <!-- STEP 6: Problema principal -->
     <div class="step" id="step-6">
-      <p class="step-q">¿Cuál es el mayor problema de <span class="dog-name">tu perro</span>? 🎯</p>
-      <p class="step-sub">Sé sincero — aquí creamos el plan para <em>ese</em> problema específico.</p>
+      <p class="step-q">¿Qué comportamiento de <span class="dog-name">tu perro</span> más te preocupa?</p>
+      <p class="step-sub">Sé honesto — cuanto más claro seas, más efectivo será el plan.</p>
       <div class="options">
         <div class="option" onclick="selectOption(this, 'problema', 'ladrar', 7)">
           <span class="opt-emoji">🔊</span>
-          <span class="opt-label">Ladra demasiado<span class="opt-sub">En casa, con visitas, en la calle...</span></span>
+          <span class="opt-label">Ladra sin parar<span class="opt-sub">Vecinos molestos, visitas incómodas, no puedo más</span></span>
         </div>
         <div class="option" onclick="selectOption(this, 'problema', 'ansiedad', 7)">
           <span class="opt-emoji">😰</span>
-          <span class="opt-label">Ansiedad / destruye cosas<span class="opt-sub">Cuando lo dejo solo, muerde muebles...</span></span>
+          <span class="opt-label">Destruye todo cuando lo dejo solo<span class="opt-sub">Muebles, zapatos, cables — ya no sé qué hacer</span></span>
         </div>
         <div class="option" onclick="selectOption(this, 'problema', 'jalar', 7)">
           <span class="opt-emoji">🦮</span>
-          <span class="opt-label">Jala la correa<span class="opt-sub">Los paseos son una lucha</span></span>
+          <span class="opt-label">Jala la correa con fuerza<span class="opt-sub">Me arrastra, los paseos son una pesadilla</span></span>
         </div>
         <div class="option" onclick="selectOption(this, 'problema', 'agresion', 7)">
           <span class="opt-emoji">😤</span>
-          <span class="opt-label">Agresividad<span class="opt-sub">Con otros perros, personas o en casa</span></span>
+          <span class="opt-label">Agresividad / mordidas<span class="opt-sub">Con personas, otros perros — tengo miedo de lo que pueda pasar</span></span>
         </div>
         <div class="option" onclick="selectOption(this, 'problema', 'saltar', 7)">
           <span class="opt-emoji">🦘</span>
-          <span class="opt-label">Salta sobre las personas<span class="opt-sub">A todos les parece gracioso hasta que no lo es</span></span>
+          <span class="opt-label">Salta encima de todos<span class="opt-sub">Derribó a alguien — ya no es gracioso</span></span>
         </div>
         <div class="option" onclick="selectOption(this, 'problema', 'general', 7)">
           <span class="opt-emoji">📚</span>
@@ -816,7 +816,7 @@
     <!-- STEP 8: Tiempo que lleva el problema -->
     <div class="step" id="step-8">
       <p class="step-q">¿Cuánto tiempo llevan con este problema? ⏳</p>
-      <p class="step-sub">Esto nos ayuda a calibrar la intensidad del plan.</p>
+      <p class="step-sub">Cada día que pasa sin trabajarlo, el comportamiento se refuerza más.</p>
       <div class="options two-col">
         <div class="option" onclick="selectOption(this, 'tiempo', 'reciente', 9)">
           <span class="opt-emoji">🌱</span>
@@ -840,11 +840,11 @@
     <!-- STEP 9: REFUERZO 2 (NEW) -->
     <div class="step" id="step-9">
       <div style="text-align:center;padding:10px 0">
-        <p style="font-size:20px;font-weight:900;color:var(--marron);line-height:1.4;margin-bottom:6px">Vamos muy bien 🔥</p>
-        <p style="font-size:14px;color:var(--gris);margin-bottom:24px">Ya tenemos un perfil claro de <strong class="dog-name" style="color:var(--azul)">tu perro</strong>. Falta poco.</p>
+        <p style="font-size:20px;font-weight:900;color:var(--marron);line-height:1.4;margin-bottom:6px">Tu plan está casi listo 🔥</p>
+        <p style="font-size:14px;color:var(--gris);margin-bottom:24px">Miles de dueños pensaron que su perro "era así" — hasta que aplicaron el método correcto.</p>
         <div style="background:linear-gradient(135deg,#2ECC71,#1FAF5C);color:#fff;border-radius:20px;padding:28px 24px;margin-bottom:24px;box-shadow:0 8px 24px rgba(46,204,113,0.3)">
-          <p style="font-size:13px;font-weight:900;color:#fff;letter-spacing:2px;margin-bottom:12px;opacity:0.8">INFORMACIÓN PRO</p>
-          <p style="font-size:18px;font-style:italic;line-height:1.5;font-weight:600">"No existen perros malos, solo perros que no han tenido <span style="color:#F7D44C;font-weight:900">la guía correcta</span>. Cuando entiendes la mente de tu perro, dejas de corregir y empiezas a liderar."</p>
+          <p style="font-size:13px;font-weight:900;color:#fff;letter-spacing:2px;margin-bottom:12px;opacity:0.8">ESTO LO CAMBIA TODO</p>
+          <p style="font-size:18px;font-style:italic;line-height:1.5;font-weight:600">"No existen perros imposibles. Solo dueños que aún no tienen <span style="color:#F7D44C;font-weight:900">el plan correcto</span> para su perro específico."</p>
         </div>
         <button class="btn-next" onclick="currentStep=10;showStep(10)" style="font-size:18px;padding:18px">Continuar →</button>
       </div>
@@ -872,8 +872,8 @@
 
     <!-- STEP 11: Emoción -->
     <div class="step" id="step-11">
-      <p class="step-q">¿Cómo te sientes cuando <span class="dog-name">tu perro</span> no te obedece? 😔</p>
-      <p class="step-sub">No hay respuesta incorrecta — esto nos ayuda a entender la dinámica entre ustedes.</p>
+      <p class="step-q">¿Cómo te sientes cuando <span class="dog-name">tu perro</span> no te obedece?</p>
+      <p class="step-sub">Sé honesto — esto nos ayuda a diseñar un plan que también funcione para ti.</p>
       <div class="options">
         <div class="option" onclick="selectOption(this, 'emocion_fallo', 'frustrado', 12)">
           <span class="opt-emoji">😤</span>
@@ -896,8 +896,8 @@
 
     <!-- STEP 12: Meta final → loading -->
     <div class="step" id="step-12">
-      <p class="step-q">¿Qué cambio más quieres ver en <span class="dog-name">tu perro</span>? 🌟</p>
-      <p class="step-sub">Esta respuesta define el gran objetivo de tu plan personalizado.</p>
+      <p class="step-q">¿Cómo quieres que sea la vida con <span class="dog-name">tu perro</span>?</p>
+      <p class="step-sub">Esto define el objetivo final de tu plan — imagínalo ya resuelto.</p>
       <div class="options">
         <div class="option" onclick="selectOption(this, 'meta', 'obediencia', 'loading')">
           <span class="opt-emoji">🎯</span>
@@ -920,8 +920,8 @@
 
     <!-- LOADING -->
     <div class="step" id="step-loading">
-      <p class="step-q" style="text-align:center">🧠 Analizando a tu perro...</p>
-      <p class="step-sub" style="text-align:center">Creando tu plan personalizado...</p>
+      <p class="step-q" style="text-align:center">🔍 Analizando el perfil de <span class="dog-name">tu perro</span>...</p>
+      <p class="step-sub" style="text-align:center">Identificando la raíz del problema y el plan exacto para resolverlo.</p>
       <div class="loading-bar-wrap">
         <div class="loading-bar" id="loading-bar"></div>
       </div>
@@ -934,8 +934,8 @@
       <!-- Diagnóstico -->
       <div class="resultado-header">
         <div class="diagnosis-tag" id="res-badge">DIAGNÓSTICO PERSONALIZADO</div>
-        <h2 id="res-titulo">Plan listo para tu perro 🎉</h2>
-        <p id="res-descripcion">Basado en sus respuestas, creamos el plan perfecto.</p>
+        <h2 id="res-titulo">Encontramos el problema de tu perro 🎯</h2>
+        <p id="res-descripcion">Esto tiene solución — y más rápido de lo que crees.</p>
       </div>
 
       <!-- Foto + scores -->
