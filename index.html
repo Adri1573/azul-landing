@@ -104,11 +104,11 @@
       display: inline-block;
       background: var(--amarillo);
       color: var(--marron);
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 800;
-      padding: 6px 16px;
-      border-radius: 20px;
-      margin-bottom: 20px;
+      padding: 10px 22px;
+      border-radius: 24px;
+      margin-bottom: 24px;
       letter-spacing: 0.5px;
     }
     .hero h1 {
@@ -194,17 +194,18 @@
     .btn-pulse { animation: pulse-btn 1.8s ease-in-out infinite; }
 
     .step-q {
-      font-size: 20px;
-      font-weight: 800;
+      font-size: 23px;
+      font-weight: 900;
       color: var(--marron);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       line-height: 1.3;
     }
     .step-sub {
-      font-size: 14px;
-      color: var(--gris);
+      font-size: 16px;
+      color: #4B5563;
+      font-weight: 500;
       margin-bottom: 24px;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     /* ── OPTIONS ── */
@@ -333,16 +334,16 @@
       border-left: 4px solid var(--azul);
     }
     .feedback-insight-title {
-      font-size: 13px;
+      font-size: 16px;
       font-weight: 800;
       color: var(--marron);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       display: flex;
       align-items: center;
       gap: 6px;
     }
     .feedback-insight p {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--gris);
       line-height: 1.6;
     }
@@ -566,11 +567,11 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     }
     .test-title {
-      font-size: 15px;
-      font-weight: 800;
+      font-size: 23px;
+      font-weight: 900;
       text-align: center;
       margin-bottom: 16px;
-      color: var(--marron);
+      color: var(--azul);
     }
     .test-list { display: grid; gap: 12px; }
     .test-item {
@@ -610,6 +611,15 @@
     }
     .btn-back:hover { background: var(--azul-dark); }
 
+    /* ── FOTO HISTORIA CREADORA ── */
+    .founder-photo {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      object-position: center 32%;
+      display: block;
+    }
+
     /* ── RESPONSIVE: MOBILE (<480px) ── */
     @media (max-width: 480px) {
       .options.two-col { grid-template-columns: 1fr; }
@@ -620,12 +630,14 @@
       .hero-stats { gap: 14px; }
       .hero-stat strong { font-size: 20px; }
       .feedback-score { grid-template-columns: 1fr 1fr; }
+      .founder-photo { height: 240px; }
     }
 
     /* ── RESPONSIVE: TABLET (481px – 768px) ── */
     @media (min-width: 481px) and (max-width: 768px) {
       .quiz-wrap { max-width: 600px; padding: 36px 24px 80px; }
       .test-list { grid-template-columns: 1fr 1fr; }
+      .founder-photo { height: 360px; }
     }
 
     /* ── RESPONSIVE: DESKTOP (>768px) ── */
@@ -637,6 +649,7 @@
       .test-list { grid-template-columns: 1fr 1fr; }
       .feedback-score { grid-template-columns: repeat(4, 1fr); }
       .planes-grid { grid-template-columns: repeat(3, 1fr); }
+      .founder-photo { height: 420px; }
     }
   </style>
 </head>
@@ -650,12 +663,12 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-badge" id="hero-badge">⚠️ Cada día sin entrenamiento lo empeora</div>
-  <h1 id="hero-h1">Tu perro no es malo.<br><span>Solo nadie le enseñó lo que necesita saber.</span></h1>
+  <h1 id="hero-h1">No fallaste como dueño.<br><span>Solo necesitas el método correcto.</span></h1>
   <p id="hero-p">Responde 10 preguntas y obtén el plan exacto para corregir su comportamiento — antes de que el problema sea más grande.</p>
   <div class="hero-stats">
-    <div class="hero-stat"><strong>+12,000</strong><span>perros entrenados</span></div>
     <div class="hero-stat"><strong>7 días</strong><span>para ver resultados</span></div>
-    <div class="hero-stat"><strong>4.9 ⭐</strong><span>calificación promedio</span></div>
+    <div class="hero-stat"><strong>100%</strong><span>refuerzo positivo, sin castigos</span></div>
+    <div class="hero-stat"><strong>24/7</strong><span>tu entrenador siempre disponible</span></div>
   </div>
 </div>
 
@@ -716,16 +729,16 @@
     <div class="step" id="step-3">
       <p class="step-q">¿Qué tipo de perro es <span class="dog-name">tu perro</span>? 🏷️</p>
       <p class="step-sub">Cada raza aprende de forma diferente — personalizamos el ritmo.</p>
-      <div class="options">
-        <div class="option" onclick="selectOption(this, 'tamano', 'pequeno', 4)">
+      <div class="options" id="step3-options">
+        <div class="option" onclick="selectTamano(this, 'pequeno')">
           <span class="opt-emoji">🐩</span>
           <span class="opt-label">Raza pequeña<span class="opt-sub">Chihuahua, Shih Tzu, Yorkshire, Poodle...</span></span>
         </div>
-        <div class="option" onclick="selectOption(this, 'tamano', 'mediano', 4)">
+        <div class="option" onclick="selectTamano(this, 'mediano')">
           <span class="opt-emoji">🐕</span>
           <span class="opt-label">Raza mediana<span class="opt-sub">Beagle, Cocker, Bulldog, Boxer, Husky...</span></span>
         </div>
-        <div class="option" onclick="selectOption(this, 'tamano', 'grande', 4)">
+        <div class="option" onclick="selectTamano(this, 'grande')">
           <span class="opt-emoji">🦮</span>
           <span class="opt-label">Raza grande<span class="opt-sub">Labrador, Golden, Pastor Alemán, Pitbull...</span></span>
         </div>
@@ -733,6 +746,15 @@
           <span class="opt-emoji">🐾</span>
           <span class="opt-label">Mestizo / criollo<span class="opt-sub">El mejor perro del mundo 💛</span></span>
         </div>
+      </div>
+
+      <!-- Raza específica (opcional) — aparece tras elegir tamaño -->
+      <div id="step3-breed-input" style="display:none;margin-top:6px">
+        <button onclick="volverATamanos()" style="background:none;border:none;color:var(--gris);font-size:12px;cursor:pointer;margin-bottom:14px;text-decoration:underline">← Cambiar tamaño</button>
+        <p style="font-size:14px;font-weight:700;color:var(--marron);margin-bottom:10px">¿Sabes la raza exacta? Hacemos el plan aún más específico 🎯</p>
+        <input type="text" id="input-raza" placeholder="Ej: Golden Retriever..." style="width:100%;padding:14px 18px;border:2px solid #E5E7EB;border-radius:50px;font-size:15px;font-family:inherit;color:#2C1810;outline:none;text-align:center;margin-bottom:14px;box-sizing:border-box" onfocus="this.style.borderColor='#60B8E8'" onblur="this.style.borderColor='#E5E7EB'" />
+        <button class="btn-next" onclick="continuarConRaza()">Continuar →</button>
+        <button onclick="continuarConRaza(true)" style="background:none;border:none;color:var(--gris);font-size:12px;cursor:pointer;margin-top:12px;text-decoration:underline;display:block;margin-left:auto;margin-right:auto">Omitir, no sé la raza exacta</button>
       </div>
     </div>
 
@@ -987,8 +1009,24 @@
         <p id="fb-alerta-texto"></p>
       </div>
 
+      <!-- HISTORIA DE LA CREADORA -->
+      <div style="background:#fff;border-radius:20px;overflow:hidden;margin:28px 0;box-shadow:0 4px 20px rgba(0,0,0,0.06);border:2px solid #EBF5FC">
+        <img src="azul-perro-real.jpg" alt="Adriana y Azul" onerror="this.style.display='none'" class="founder-photo" />
+        <div style="padding:24px">
+        <div style="margin-bottom:16px">
+          <p style="font-size:16px;font-weight:900;color:var(--marron)">🐾 La historia real detrás de AZUL</p>
+          <p style="font-size:11px;color:var(--gris)">Por Adriana, creadora de AZUL</p>
+        </div>
+        <p style="font-size:13px;color:var(--marron);line-height:1.7;margin-bottom:10px">Azul es real. Es mi perro — un poodledoodle blanco, de nariz rosada y ojos color miel, que llegó a mi vida sin que lo buscara y hoy es mi mejor compañía.</p>
+        <p style="font-size:13px;color:var(--marron);line-height:1.7;margin-bottom:10px">Pesa apenas 7 kilos, pero es sorprendentemente fuerte. Tierno, juguetón, cariñoso, muy enseñable... pero en cada paseo me jalaba con tanta fuerza que, con mis problemas de espalda, salir a caminar con él pasó de ser un placer a algo que empecé a evitar.</p>
+        <p style="font-size:13px;color:var(--marron);line-height:1.7;margin-bottom:10px">Busqué soluciones y descubrí algo que no esperaba: no era la única. Miles de dueños viven exactamente lo mismo — aman profundamente a su perro, pero algo puntual se volvió imposible de manejar, y nadie les explica bien por qué ni cómo resolverlo sin gritos ni castigos.</p>
+        <p style="font-size:13px;color:var(--marron);line-height:1.7;margin-bottom:10px">Así nació AZUL. No como una app genérica más, sino como lo que yo misma necesitaba para mi propio perro — construido junto a adiestradores certificados, con base científica real, no solo intuición.</p>
+        <p style="font-size:13px;color:var(--marron);line-height:1.7;font-weight:700">Si estás aquí, probablemente te sientes identificado. Y quiero que sepas algo: esto tiene solución, y no estás solo en esto. 💙</p>
+        </div>
+      </div>
+
       <!-- Features -->
-      <p style="font-size:20px;font-weight:900;color:var(--azul-dark);margin:28px 0 16px;text-align:center">🐾 Todo lo que incluye tu plan:</p>
+      <p style="font-size:26px;font-weight:900;color:var(--naranja);margin:28px 0 16px;text-align:center">🐾 Todo lo que incluye tu plan:</p>
       <div class="plan-items">
         <div class="plan-item">
           <span class="pi-emoji">🤖</span>
@@ -1012,7 +1050,7 @@
         </div>
         <div class="plan-item">
           <span class="pi-emoji">👥</span>
-          <div class="pi-text"><strong>Comunidad de dueños AZUL</strong>Retos semanales y apoyo de miles de dueños como tú.</div>
+          <div class="pi-text"><strong>Comunidad de dueños AZUL</strong>Retos semanales y un espacio donde nadie te va a juzgar por cómo le está yendo a tu perro.</div>
         </div>
         <div class="plan-item">
           <span class="pi-emoji">📱</span>
@@ -1026,16 +1064,16 @@
 
       <!-- SCREENSHOTS APP -->
       <div style="margin:32px 0 8px">
-        <p style="font-size:20px;font-weight:900;color:var(--azul-dark);text-align:center;margin-bottom:6px">📱 Así se ve la app</p>
+        <p style="font-size:26px;font-weight:900;color:var(--azul);text-align:center;margin-bottom:6px">📱 Así se ve la app</p>
         <p style="font-size:13px;color:var(--gris);text-align:center;margin-bottom:20px">Todo en tu celular, disponible 24/7</p>
         <div style="display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none">
           <!-- Screen 1: tu entrenador chat -->
-          <div style="min-width:160px;background:#fff;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.10);overflow:hidden;flex-shrink:0">
+          <div style="width:170px;height:310px;background:#fff;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.10);overflow:hidden;flex-shrink:0;display:flex;flex-direction:column">
             <div style="background:var(--azul);padding:10px 12px;display:flex;align-items:center;gap:8px">
               <div style="width:28px;height:28px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px">🤖</div>
               <span style="color:#fff;font-size:11px;font-weight:800">Tu entrenador</span>
             </div>
-            <div style="padding:10px;display:flex;flex-direction:column;gap:6px">
+            <div style="padding:10px;display:flex;flex-direction:column;gap:6px;flex:1">
               <div style="background:#EBF5FF;border-radius:10px 10px 10px 2px;padding:8px 10px;font-size:10px;color:var(--marron);line-height:1.4">Hola! Detecté que Max ladra cuando llegan visitas. Te explico exactamente qué hacer 🐾</div>
               <div style="background:var(--azul);border-radius:10px 10px 2px 10px;padding:8px 10px;font-size:10px;color:#fff;line-height:1.4;align-self:flex-end">¿Funciona con perros adultos?</div>
               <div style="background:#EBF5FF;border-radius:10px 10px 10px 2px;padding:8px 10px;font-size:10px;color:var(--marron);line-height:1.4">¡Sí! Los perros aprenden a cualquier edad. El proceso tarda un poco más pero los resultados son igual de sólidos ✅</div>
@@ -1043,11 +1081,11 @@
             <div style="padding:0 10px 10px;font-size:9px;font-weight:800;color:var(--azul);text-align:center">Entrenador IA 24/7</div>
           </div>
           <!-- Screen 2: Ejercicios -->
-          <div style="min-width:160px;background:#fff;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.10);overflow:hidden;flex-shrink:0">
+          <div style="width:170px;height:310px;background:#fff;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.10);overflow:hidden;flex-shrink:0;display:flex;flex-direction:column">
             <div style="background:var(--azul);padding:10px 12px">
               <span style="color:#fff;font-size:11px;font-weight:800">📚 Ejercicios de hoy</span>
             </div>
-            <div style="padding:10px;display:flex;flex-direction:column;gap:6px">
+            <div style="padding:10px;display:flex;flex-direction:column;gap:6px;flex:1">
               <div style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:10px;padding:8px 10px;display:flex;align-items:center;gap:6px">
                 <span style="font-size:14px">✅</span>
                 <div><div style="font-size:10px;font-weight:800;color:var(--marron)">Nombre + mirada</div><div style="font-size:9px;color:var(--gris)">Completado · 5 min</div></div>
@@ -1064,11 +1102,11 @@
             <div style="padding:0 10px 10px;font-size:9px;font-weight:800;color:var(--azul);text-align:center">+50 ejercicios guiados</div>
           </div>
           <!-- Screen 3: Progreso -->
-          <div style="min-width:160px;background:#fff;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.10);overflow:hidden;flex-shrink:0">
+          <div style="width:170px;height:310px;background:#fff;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,0.10);overflow:hidden;flex-shrink:0;display:flex;flex-direction:column">
             <div style="background:var(--azul);padding:10px 12px">
               <span style="color:#fff;font-size:11px;font-weight:800">📈 Progreso de Max</span>
             </div>
-            <div style="padding:12px 10px">
+            <div style="padding:12px 10px;flex:1">
               <div style="display:flex;justify-content:space-between;margin-bottom:10px">
                 <div style="text-align:center"><div style="font-size:22px;font-weight:900;color:var(--azul)">12</div><div style="font-size:9px;color:var(--gris)">sesiones</div></div>
                 <div style="text-align:center"><div style="font-size:22px;font-weight:900;color:#10B981">87%</div><div style="font-size:9px;color:var(--gris)">consistencia</div></div>
@@ -1086,6 +1124,71 @@
           </div>
         </div>
         <p style="font-size:14px;color:var(--gris);text-align:center;margin-top:8px">← Desliza para ver más →</p>
+      </div>
+
+      <!-- FAQ -->
+      <div style="margin:28px 0">
+        <p style="font-size:26px;font-weight:900;color:var(--naranja);text-align:center;margin-bottom:20px">🙋 Preguntas frecuentes</p>
+        <div style="display:flex;flex-direction:column;gap:10px" id="faq-list">
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">¿Funciona para perros adultos? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Sí. Los perros aprenden a cualquier edad — no importa si tiene 2, 5 o 10 años. Con perros adultos el proceso puede tardar un poco más, pero el método de refuerzo positivo funciona igual de bien.</div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">¿Necesito experiencia previa en adiestramiento? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">No. AZUL está diseñado para dueños sin experiencia. Cada ejercicio viene con instrucciones paso a paso, video de referencia y tu entrenador disponible 24/7 para responder tus dudas en tiempo real.</div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">¿El "entrenador" es una IA o una persona real? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Es una combinación: AzulIA te acompaña 24/7 con respuestas instantáneas, pero cada plan y protocolo está construido junto a adiestradores certificados — no es una IA genérica improvisando. Para el día a día (dudas, ajustes, motivación) tienes soporte inmediato sin esperar una cita.</div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">¿Qué pasa después de los 7 días de prueba? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Al terminar los 7 días, tu suscripción continúa automáticamente por $6.99/mes — menos de un café. Puedes cancelar en cualquier momento desde la app, sin formularios ni llamadas. Si cancelas antes de los 7 días, no se te cobra nada más.</div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">¿Cuánto tiempo al día necesito dedicarle? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Con 10–15 minutos al día es suficiente para ver resultados. Las sesiones están diseñadas para caber en tu rutina: mañana, tarde o noche. La constancia importa más que la duración.</div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">¿Funciona para cualquier raza o tamaño? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Sí. El plan se personaliza según el tamaño, la raza, la edad y el problema específico de tu perro. Lo que funciona para un chihuahua no es lo mismo que para un pastor alemán — y AZUL lo sabe.</div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">Ya intenté otras cosas y no funcionó. ¿Por qué sería diferente? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">La mayoría de métodos fallan porque son genéricos. AZUL crea un plan basado en el perfil exacto de tu perro: su comportamiento, su historia, tu rutina. Además tienes tu entrenador para ajustar el plan en tiempo real si algo no funciona. Y si aún así no ves resultados en 7 días, te devolvemos tu dinero.</div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">¿AZUL puede resolver cualquier problema, incluso agresión severa? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">AZUL es excelente para conducta general, ansiedad, obediencia y hábitos del día a día — la mayoría de los casos. Pero si tu perro tiene agresión severa con mordidas, o el comportamiento parece tener una causa médica (dolor, enfermedad), lo correcto es que también lo evalúe un veterinario o un adiestrador presencial certificado. AZUL es un complemento poderoso, no un reemplazo de atención profesional cuando la seguridad está en juego.</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TESTIMONIOS -->
+      <div class="testimonios">
+        <p class="test-title">No eres la única persona que se siente así 💛</p>
+        <p style="font-size:12px;color:var(--gris);text-align:center;margin-top:-10px;margin-bottom:16px">Historias reales compartidas por dueños de perros en comunidades online</p>
+        <div class="test-list">
+          <div class="test-item">
+            <p class="test-text">"Probé videos, consejos de amigos, hasta se me salió un grito sin querer. Nada parecía funcionar y empecé a sentirme una fracasada."</p>
+          </div>
+          <div class="test-item">
+            <p class="test-text">"Dejé de invitar gente a mi casa por los ladridos. Sentía que mi vida entera giraba alrededor de manejar a mi perro."</p>
+          </div>
+          <div class="test-item">
+            <p class="test-text">"Lo que más me ayudó no fueron los consejos técnicos — fue sentir que alguien más lo entendía sin que tuviera que explicar nada."</p>
+          </div>
+        </div>
       </div>
 
       <!-- COMPARACIÓN DE PRECIO -->
@@ -1112,108 +1215,17 @@
               <div style="font-size:11px;color:rgba(255,255,255,0.85)">Acceso ilimitado + IA 24/7</div>
             </div>
             <div style="text-align:right">
-              <div style="font-size:24px;font-weight:900;color:#fff">$2.99</div>
+              <div style="font-size:24px;font-weight:900;color:#fff">$3.99</div>
               <div style="font-size:9px;color:rgba(255,255,255,0.85)">para empezar</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- TESTIMONIOS -->
-      <div class="testimonios">
-        <p class="test-title">Lo que dicen las familias AZUL 💛</p>
-        <div class="test-list">
-          <div class="test-item">
-            <div class="test-stars">★★★★★</div>
-            <p class="test-text">"Mi golden destruía los muebles cada vez que salía. En 3 semanas con AZUL ya puedo dejarlo solo sin miedo. Nunca pensé que fuera tan fácil cuando tienes el método correcto."</p>
-            <p class="test-author">— María C., Bogotá 🇨🇴</p>
-          </div>
-          <div class="test-item">
-            <div class="test-stars">★★★★★</div>
-            <p class="test-text">"Mi pitbull jalaba tan fuerte que me caí dos veces. Tenía miedo de sacarlo. Con AZUL en 2 semanas ya caminamos tranquilos. Le cambió la vida a toda la familia."</p>
-            <p class="test-author">— Carlos M., Ciudad de México 🇲🇽</p>
-          </div>
-          <div class="test-item">
-            <div class="test-stars">★★★★★</div>
-            <p class="test-text">"Mi perro mordió a un vecino y yo no sabía qué hacer. AZUL me dio un plan paso a paso y en menos de un mes es otro perro. Vale mil veces lo que cuesta."</p>
-            <p class="test-author">— Valentina R., Buenos Aires 🇦🇷</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- FAQ -->
-      <div style="margin:28px 0">
-        <p style="font-size:20px;font-weight:900;color:var(--azul-dark);text-align:center;margin-bottom:20px">🙋 Preguntas frecuentes</p>
-        <div style="display:flex;flex-direction:column;gap:10px" id="faq-list">
-
-          <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-q">¿Funciona para perros adultos? <span class="faq-arrow">▼</span></div>
-            <div class="faq-a">Sí. Los perros aprenden a cualquier edad. Con perros adultos el proceso puede tardar un poco más, pero los resultados son igual de sólidos. Miles de familias han entrenado perros de 2, 5 y hasta 10 años con AZUL.</div>
-          </div>
-
-          <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-q">¿Necesito experiencia previa en adiestramiento? <span class="faq-arrow">▼</span></div>
-            <div class="faq-a">No. AZUL está diseñado para dueños sin experiencia. Cada ejercicio viene con instrucciones paso a paso, video de referencia y tu entrenador disponible 24/7 para responder tus dudas en tiempo real.</div>
-          </div>
-
-          <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-q">¿Qué pasa después de los 7 días de prueba? <span class="faq-arrow">▼</span></div>
-            <div class="faq-a">Al terminar los 7 días, tu suscripción continúa automáticamente por $4.99/mes — menos de un café. Puedes cancelar en cualquier momento desde la app, sin formularios ni llamadas. Si cancelas antes de los 7 días, no se te cobra nada más.</div>
-          </div>
-
-          <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-q">¿Cuánto tiempo al día necesito dedicarle? <span class="faq-arrow">▼</span></div>
-            <div class="faq-a">Con 10–15 minutos al día es suficiente para ver resultados. Las sesiones están diseñadas para caber en tu rutina: mañana, tarde o noche. La constancia importa más que la duración.</div>
-          </div>
-
-          <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-q">¿Funciona para cualquier raza o tamaño? <span class="faq-arrow">▼</span></div>
-            <div class="faq-a">Sí. El plan se personaliza según el tamaño, la raza, la edad y el problema específico de tu perro. Lo que funciona para un chihuahua no es lo mismo que para un pastor alemán — y AZUL lo sabe.</div>
-          </div>
-
-          <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-q">Ya intenté otras cosas y no funcionó. ¿Por qué sería diferente? <span class="faq-arrow">▼</span></div>
-            <div class="faq-a">La mayoría de métodos fallan porque son genéricos. AZUL crea un plan basado en el perfil exacto de tu perro: su comportamiento, su historia, tu rutina. Además tienes tu entrenador para ajustar el plan en tiempo real si algo no funciona. Y si aún así no ves resultados en 7 días, te devolvemos tu dinero.</div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- SELECTOR DE PLAN -->
-      <div style="text-align:center;margin-bottom:16px">
-        <p style="font-size:24px;font-weight:900;color:var(--azul-dark);margin-bottom:4px">Elige tu plan</p>
-        <p style="font-size:13px;color:var(--gris)">Acceso completo a AZUL — cancela cuando quieras</p>
-      </div>
-      <div class="planes-grid">
-
-        <div class="plan-opt selected-plan" id="plan-trial" onclick="selectPlan('trial');irAlCheckout()" style="position:relative;overflow:visible;cursor:pointer">
-          <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--naranja);color:#fff;font-size:11px;font-weight:900;padding:4px 14px;border-radius:20px;white-space:nowrap">🔥 EMPIEZA POR $2.99</div>
-          <div class="plan-opt-nombre" style="font-size:14px;margin-top:8px;color:var(--naranja);font-weight:900">7 días de prueba</div>
-          <div class="plan-opt-precio" style="font-size:38px;color:var(--naranja)">$2.99<span style="font-size:14px;font-weight:500;color:var(--gris)">/7 días</span></div>
-          <div class="plan-opt-sub" style="font-weight:700;color:var(--marron)">Empieza hoy · Luego $4.99/mes · Cancela cuando quieras</div>
-        </div>
-
-        <div class="plan-opt" id="plan-mensual" onclick="selectPlan('mensual')">
-          <div class="plan-opt-nombre" style="font-size:14px">Mensual</div>
-          <div class="plan-opt-precio" style="font-size:32px">$4.99<span style="font-size:14px;font-weight:500;color:var(--gris)">/mes</span></div>
-          <div class="plan-opt-sub">Sin compromiso, cancela cuando quieras</div>
-        </div>
-
-        <div class="plan-opt plan-anual-card" id="plan-anual" onclick="selectPlan('anual')">
-          <div class="anual-popular-badge">⭐ AHORRA 30%</div>
-          <div class="plan-opt-nombre" style="font-size:14px;margin-top:8px">Anual</div>
-          <div style="font-size:14px;color:var(--gris);text-decoration:line-through;margin-bottom:2px">$42.99/año</div>
-          <div class="plan-opt-precio" style="font-size:36px">$29.99<span style="font-size:14px;font-weight:500;color:var(--gris)">/año</span></div>
-          <div style="background:var(--amarillo);color:var(--marron);font-size:12px;font-weight:800;padding:4px 12px;border-radius:20px;display:inline-block;margin-top:4px">≈ $2.50/mes — un café al mes ☕</div>
-          <div class="plan-opt-sub" style="margin-top:6px;font-weight:600">El plan que eligen el 80% de nuestros usuarios</div>
-        </div>
-
-      </div>
-
       <!-- GRÁFICA DE PROGRESO -->
-      <div style="background:#fff;border-radius:20px;padding:20px;margin-top:24px;box-shadow:0 4px 20px rgba(0,0,0,0.06)">
-        <p style="font-size:14px;font-weight:800;color:var(--marron);margin-bottom:4px;text-align:center">📈 El progreso que puedes lograr con <strong class="dog-name" style="color:var(--azul)">tu perro</strong></p>
-        <p style="font-size:11px;color:var(--gris);text-align:center;margin-bottom:16px">Resultados promedio de nuestros usuarios</p>
+      <div style="background:#fff;border-radius:20px;padding:20px;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,0.06)">
+        <p style="font-size:20px;font-weight:900;color:var(--azul-dark);margin-bottom:4px;text-align:center">📈 El progreso que puedes lograr con <strong class="dog-name" style="color:var(--naranja)">tu perro</strong></p>
+        <p style="font-size:11px;color:var(--gris);text-align:center;margin-bottom:16px">Así se ve el progreso típico con el método AZUL</p>
         <div style="display:flex;align-items:flex-end;justify-content:space-between;height:120px;padding:0 10px;gap:6px">
           <div style="display:flex;flex-direction:column;align-items:center;flex:1">
             <div style="width:100%;background:#EF4444;border-radius:6px 6px 0 0;height:20px"></div>
@@ -1239,11 +1251,41 @@
         </div>
       </div>
 
-      <!-- CONTADOR SOCIAL -->
+      <!-- SELECTOR DE PLAN -->
+      <div style="text-align:center;margin-bottom:16px">
+        <p style="font-size:30px;font-weight:900;color:var(--naranja);margin-bottom:4px">Elige tu plan</p>
+        <p style="font-size:13px;color:var(--gris)">Acceso completo a AZUL — cancela cuando quieras</p>
+      </div>
+      <div class="planes-grid">
+
+        <div class="plan-opt selected-plan" id="plan-trial" onclick="selectPlan('trial');irAlCheckout()" style="position:relative;overflow:visible;cursor:pointer">
+          <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--naranja);color:#fff;font-size:11px;font-weight:900;padding:4px 14px;border-radius:20px;white-space:nowrap">🔥 EMPIEZA POR $3.99</div>
+          <div class="plan-opt-nombre" style="font-size:14px;margin-top:8px;color:var(--naranja);font-weight:900">7 días de prueba</div>
+          <div class="plan-opt-precio" style="font-size:38px;color:var(--naranja)">$3.99<span style="font-size:14px;font-weight:500;color:var(--gris)">/7 días</span></div>
+          <div class="plan-opt-sub" style="font-weight:700;color:var(--marron)">Empieza hoy · Luego $6.99/mes · Cancela cuando quieras</div>
+        </div>
+
+        <div class="plan-opt" id="plan-mensual" onclick="selectPlan('mensual')">
+          <div class="plan-opt-nombre" style="font-size:14px">Mensual</div>
+          <div class="plan-opt-precio" style="font-size:32px">$6.99<span style="font-size:14px;font-weight:500;color:var(--gris)">/mes</span></div>
+          <div class="plan-opt-sub">Sin compromiso, cancela cuando quieras</div>
+        </div>
+
+        <div class="plan-opt plan-anual-card" id="plan-anual" onclick="selectPlan('anual')">
+          <div class="anual-popular-badge">⭐ AHORRA 64%</div>
+          <div class="plan-opt-nombre" style="font-size:14px;margin-top:8px">Anual</div>
+          <div style="font-size:14px;color:var(--gris);text-decoration:line-through;margin-bottom:2px">$83.88/año</div>
+          <div class="plan-opt-precio" style="font-size:36px">$29.99<span style="font-size:14px;font-weight:500;color:var(--gris)">/año</span></div>
+          <div style="background:var(--amarillo);color:var(--marron);font-size:12px;font-weight:800;padding:4px 12px;border-radius:20px;display:inline-block;margin-top:4px">≈ $2.50/mes — un café al mes ☕</div>
+          <div class="plan-opt-sub" style="margin-top:6px;font-weight:600">Recomendado — el mejor precio por mes</div>
+        </div>
+
+      </div>
+
+      <!-- OFERTA DE LANZAMIENTO -->
       <div style="text-align:center;margin-top:20px;margin-bottom:16px">
-        <p style="font-size:13px;color:var(--gris);display:inline-flex;align-items:center;gap:6px;background:#fff;padding:8px 16px;border-radius:50px;box-shadow:0 2px 10px rgba(0,0,0,0.06)">
-          <span style="width:8px;height:8px;background:#EF4444;border-radius:50%;display:inline-block;animation:pulse-btn 1.5s infinite"></span>
-          <span id="viewers-count">47</span> personas están viendo esta oferta ahora
+        <p style="font-size:16px;font-weight:800;color:var(--rojo);display:inline-flex;align-items:center;gap:8px;background:#fff;padding:10px 20px;border-radius:50px;box-shadow:0 2px 10px rgba(0,0,0,0.06)">
+          <span>🔥</span> Precio de lanzamiento — sube pronto
         </p>
       </div>
 
@@ -1262,8 +1304,8 @@
       <div style="background:#fff;border:2px solid #2ECC71;border-radius:16px;padding:16px 20px;margin-top:16px;display:flex;align-items:center;gap:14px;box-shadow:0 2px 10px rgba(0,0,0,0.04)">
         <span style="font-size:32px">🛡️</span>
         <div>
-          <p style="font-size:14px;font-weight:800;color:#2ECC71;margin-bottom:2px">Garantía de 7 días</p>
-          <p style="font-size:12px;color:var(--gris);line-height:1.4">Si no ves resultados, te devolvemos tu dinero. Sin preguntas, sin complicaciones.</p>
+          <p style="font-size:19px;font-weight:900;color:#2ECC71;margin-bottom:2px">Garantía de 7 días</p>
+          <p style="font-size:13px;color:var(--gris);line-height:1.4">Si no ves resultados, te devolvemos tu dinero. Sin preguntas, sin complicaciones.</p>
         </div>
       </div>
 
@@ -1389,6 +1431,34 @@
     }
   }
 
+  function selectTamano(el, tamano) {
+    el.closest('.options').querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    answers.tamano = tamano;
+    const placeholders = { pequeno: 'Ej: Chihuahua, Yorkshire...', mediano: 'Ej: Beagle, Cocker Spaniel...', grande: 'Ej: Labrador, Golden Retriever...' };
+    const input = document.getElementById('input-raza');
+    input.placeholder = placeholders[tamano] || 'Ej: Golden Retriever...';
+    input.value = '';
+    setTimeout(() => {
+      document.getElementById('step3-options').style.display = 'none';
+      document.getElementById('step3-breed-input').style.display = 'block';
+    }, 200);
+  }
+
+  function volverATamanos() {
+    document.getElementById('step3-breed-input').style.display = 'none';
+    document.getElementById('step3-options').style.display = '';
+  }
+
+  function continuarConRaza(omitir) {
+    const val = omitir ? '' : document.getElementById('input-raza').value.trim();
+    answers.raza_especifica = val;
+    document.getElementById('step3-breed-input').style.display = 'none';
+    document.getElementById('step3-options').style.display = '';
+    currentStep = 4;
+    showStep(4);
+  }
+
   function selectOption(el, key, value, next) {
     // Deselect others in same step
     el.closest('.options').querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
@@ -1441,6 +1511,7 @@
       titulo: 'Los pequeños son los más subestimados',
       entrenable: '91%',
       texto: 'Los perros de raza pequeña sufren algo que los expertos llaman "síndrome del perro pequeño": sus dueños los cargan, los perdonan más y los exponen menos a límites claros. Resultado: un perro que cree que manda. No es culpa tuya — es algo que casi todos los dueños de razas pequeñas hacen sin darse cuenta. La buena noticia: con estructura consistente responden increíblemente rápido.',
+      textoConRaza: (r) => `Los ${r}, como buena parte de las razas pequeñas, sufren algo que los expertos llaman "síndrome del perro pequeño": sus dueños los cargan, los perdonan más y los exponen menos a límites claros. Resultado: un perro que cree que manda. No es culpa tuya — es algo que casi todos los dueños de ${r} hacen sin darse cuenta. La buena noticia: con estructura consistente, los ${r} responden increíblemente rápido.`,
       breeds: ['chihuahua', 'yorkshire', 'poodle'],
     },
     mediano: {
@@ -1448,6 +1519,7 @@
       titulo: 'Inteligentes, energéticos y muy entrenables',
       entrenable: '94%',
       texto: 'Los perros medianos están en el punto ideal: suficiente energía para aprender y suficiente tamaño para que valga la pena. Son de las razas más inteligentes del mundo — Beagles, Boxers, Cockers aprenden comandos en promedio 15 repeticiones menos que otras razas. El reto es que esa misma inteligencia los hace aburrirse rápido y buscar su propia "diversión" si no se estimulan correctamente.',
+      textoConRaza: (r) => `Los ${r} están en el punto ideal: suficiente energía para aprender y suficiente tamaño para que valga la pena. Es una de las razas más inteligentes y entrenables que existen. El reto es que esa misma inteligencia hace que los ${r} se aburran rápido y busquen su propia "diversión" si no se estimulan correctamente — algo que el plan de AZUL tiene en cuenta específicamente.`,
       breeds: ['beagle', 'boxer', 'spaniel'],
     },
     grande: {
@@ -1455,6 +1527,7 @@
       titulo: 'Su tamaño amplifica todo — lo bueno y lo malo',
       entrenable: '89%',
       texto: 'Un Labrador, Golden o Pastor Alemán bien entrenado es el compañero perfecto. Uno sin estructura es un problema de 30+ kilos que se mueve a 40km/h. Los perros grandes necesitan más consistencia que cualquier otra categoría: si un día le permites algo que otro día no, el mensaje se borra. Una vez que entienden las reglas, sin embargo, su lealtad y su capacidad de aprendizaje no tiene comparación.',
+      textoConRaza: (r) => `Un ${r} bien entrenado es el compañero perfecto. Uno sin estructura es un problema de varios kilos que se mueve rápido. Los ${r}, como toda raza grande, necesitan más consistencia que cualquier otra categoría: si un día le permites algo que otro día no, el mensaje se borra. Una vez que entienden las reglas, sin embargo, su lealtad y capacidad de aprendizaje no tienen comparación.`,
       breeds: ['labrador', 'retriever/golden', 'germanshepherd'],
     },
     mestizo: {
@@ -1529,6 +1602,7 @@
       const tamano = answers.tamano || 'mediano';
       const problema = answers.problema || 'general';
       const emocion = answers.emocion_fallo || 'preocupada';
+      const razaEspecifica = (answers.raza_especifica || '').trim();
 
       const raza = razaData[tamano] || razaData.mediano;
       const prob = problemaData[problema] || problemaData.general;
@@ -1542,12 +1616,12 @@
 
       // Textos
       const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-      set('feedback-raza-tag', raza.tag);
+      set('feedback-raza-tag', razaEspecifica || raza.tag);
       set('feedback-photo-title', raza.titulo);
       set('fb-score-entrenable', raza.entrenable);
       set('fb-score-tiempo', prob.dias);
       set('fb-dias-plan', prob.dias);
-      set('fb-raza-texto', raza.texto);
+      set('fb-raza-texto', (razaEspecifica && raza.textoConRaza) ? raza.textoConRaza(razaEspecifica) : raza.texto);
       set('fb-problema-texto', prob.texto);
       set('fb-emocion-texto', emoText);
       set('fb-alerta-texto', prob.alerta);
@@ -1641,12 +1715,6 @@
     }, 1000);
   }
 
-  // Contador de personas random
-  setInterval(() => {
-    const el = document.getElementById('viewers-count');
-    if (el) el.textContent = Math.floor(Math.random() * 30) + 30;
-  }, 8000);
-
   // ── Cupón ──────────────────────────────────────────────
   let couponShown = false;
   let couponRevealed = false;
@@ -1689,8 +1757,8 @@
     if (planActivo === 'anual' && couponRevealed) {
       url = 'https://pay.hotmart.com/B106433359C?off=tu2bfpqx&checkoutMode=10';
     }
-    const valores = { trial: 2.99, mensual: 4.99, anual: 29.99 };
-    if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { value: valores[planActivo] || 4.99, currency: 'USD' });
+    const valores = { trial: 3.99, mensual: 6.99, anual: 29.99 };
+    if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { value: valores[planActivo] || 6.99, currency: 'USD' });
     window.location.href = url;
   }
 </script>
