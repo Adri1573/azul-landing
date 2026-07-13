@@ -1267,13 +1267,15 @@
           <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--naranja);color:#fff;font-size:11px;font-weight:900;padding:4px 14px;border-radius:20px;white-space:nowrap">🔥 EMPIEZA POR $3.99</div>
           <div class="plan-opt-nombre" style="font-size:14px;margin-top:8px;color:var(--naranja);font-weight:900">7 días de prueba</div>
           <div class="plan-opt-precio" style="font-size:38px;color:var(--naranja)">$3.99<span style="font-size:14px;font-weight:500;color:var(--gris)">/7 días</span></div>
-          <div class="plan-opt-sub" style="font-weight:700;color:var(--marron)">Empieza hoy · Luego $6.99/mes · Cancela cuando quieras</div>
+          <div style="background:#FFF4EF;color:var(--naranja);font-size:12px;font-weight:800;padding:4px 12px;border-radius:20px;display:inline-block;margin-top:4px">≈ $0.57/día</div>
+          <div class="plan-opt-sub" style="margin-top:6px;font-weight:700;color:var(--marron)">Empieza hoy · Luego $6.99/mes · Cancela cuando quieras</div>
         </div>
 
         <div class="plan-opt" id="plan-mensual" onclick="selectPlan('mensual')">
           <div class="plan-opt-nombre" style="font-size:14px">Mensual</div>
           <div class="plan-opt-precio" style="font-size:32px">$6.99<span style="font-size:14px;font-weight:500;color:var(--gris)">/mes</span></div>
-          <div class="plan-opt-sub">Sin compromiso, cancela cuando quieras</div>
+          <div style="background:var(--gris-claro);color:var(--azul-dark);font-size:12px;font-weight:800;padding:4px 12px;border-radius:20px;display:inline-block;margin-top:4px">≈ $0.23/día</div>
+          <div class="plan-opt-sub" style="margin-top:6px">Sin compromiso, cancela cuando quieras</div>
         </div>
 
         <div class="plan-opt plan-anual-card" id="plan-anual" onclick="selectPlan('anual')">
@@ -1281,7 +1283,7 @@
           <div class="plan-opt-nombre" style="font-size:14px;margin-top:8px">Anual</div>
           <div style="font-size:14px;color:var(--gris);text-decoration:line-through;margin-bottom:2px">$83.88/año</div>
           <div class="plan-opt-precio" style="font-size:36px">$29.99<span style="font-size:14px;font-weight:500;color:var(--gris)">/año</span></div>
-          <div style="background:var(--amarillo);color:var(--marron);font-size:12px;font-weight:800;padding:4px 12px;border-radius:20px;display:inline-block;margin-top:4px">≈ $2.50/mes — un café al mes ☕</div>
+          <div style="background:var(--amarillo);color:var(--marron);font-size:12px;font-weight:800;padding:4px 12px;border-radius:20px;display:inline-block;margin-top:4px">≈ $0.08/día — un café al mes ☕</div>
           <div class="plan-opt-sub" style="margin-top:6px;font-weight:600">Recomendado — el mejor precio por mes</div>
         </div>
 
@@ -1770,12 +1772,23 @@
     const valores = { trial: 3.99, mensual: 6.99, anual: 29.99 };
     if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { value: valores[planActivo] || 6.99, currency: 'USD' });
 
-    document.querySelectorAll('.btn-cta').forEach(b => {
+    const ctaButtons = document.querySelectorAll('.btn-cta');
+    ctaButtons.forEach(b => {
+      if (!b.dataset.originalText) b.dataset.originalText = b.textContent;
       b.disabled = true;
       b.style.opacity = '0.85';
       b.textContent = '🔒 Preparando tu checkout seguro...';
     });
     setTimeout(() => { window.location.href = url; }, 700);
+    // Salvavidas: si por algún motivo la redirección no ocurre (bloqueador, error de red),
+    // no dejar el botón congelado para siempre.
+    setTimeout(() => {
+      ctaButtons.forEach(b => {
+        b.disabled = false;
+        b.style.opacity = '';
+        if (b.dataset.originalText) b.textContent = b.dataset.originalText;
+      });
+    }, 5000);
   }
 </script>
 </body>
