@@ -1171,6 +1171,11 @@
             <div class="faq-a">AZUL es excelente para conducta general, ansiedad, obediencia y hábitos del día a día — la mayoría de los casos. Pero si tu perro tiene agresión severa con mordidas, o el comportamiento parece tener una causa médica (dolor, enfermedad), lo correcto es que también lo evalúe un veterinario o un adiestrador presencial certificado. AZUL es un complemento poderoso, no un reemplazo de atención profesional cuando la seguridad está en juego.</div>
           </div>
 
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">¿Es seguro pagar aquí? ¿Quién procesa mi pago? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Sí. Tu pago lo procesa Hotmart, una de las plataformas de pago más usadas en Latinoamérica (no AZUL directamente), con cifrado de datos estándar de la industria. Nunca vemos ni guardamos los datos de tu tarjeta. En tu estado de cuenta el cargo aparecerá como "HOTMART*AZUL" — si lo ves y no lo reconoces, es tu compra de AZUL.</div>
+          </div>
+
         </div>
       </div>
 
@@ -1299,6 +1304,7 @@
       <button class="btn-next btn-cta btn-pulse" onclick="irAlCheckout()" style="margin-top:0;font-size:20px;padding:20px;box-shadow:0 8px 24px rgba(247,212,76,0.5)">
         🐾 Consigue tu plan hoy →
       </button>
+      <p style="text-align:center;font-size:11px;color:var(--gris);margin-top:8px">Al continuar, te llevamos a un checkout seguro para completar tu compra.</p>
 
       <!-- GARANTÍA VISIBLE -->
       <div style="background:#fff;border:2px solid #2ECC71;border-radius:16px;padding:16px 20px;margin-top:16px;display:flex;align-items:center;gap:14px;box-shadow:0 2px 10px rgba(0,0,0,0.04)">
@@ -1309,7 +1315,11 @@
         </div>
       </div>
 
-      <p style="text-align:center;font-size:10px;color:#9CA3AF;margin-top:12px">🔒 Pago seguro · Tus datos están protegidos</p>
+      <!-- BLOQUE DE SEGURIDAD DE PAGO -->
+      <div style="background:var(--gris-claro);border-radius:16px;padding:16px 18px;margin-top:14px">
+        <p style="font-size:13px;font-weight:800;color:var(--marron);margin-bottom:6px;display:flex;align-items:center;gap:6px">🔒 Compra 100% segura</p>
+        <p style="font-size:11px;color:var(--gris);line-height:1.7">Procesado por <strong>Hotmart</strong>, una de las plataformas de pago más grandes de Latinoamérica. Aceptamos tarjeta de crédito y débito. En tu estado de cuenta el cargo aparecerá como <strong>"HOTMART*AZUL"</strong>. Precios en USD — tu banco los convierte automáticamente a tu moneda local.</p>
+      </div>
 
       <!-- TESTIMONIOS -->
     </div>
@@ -1342,7 +1352,7 @@
             <p><span style="font-size:16px;text-decoration:line-through;opacity:0.6">$29.99</span> <span style="font-size:32px;font-weight:900;color:var(--amarillo)">$20.99</span></p>
           </div>
           <button class="btn-next btn-cta" onclick="irAlCheckout()" style="width:100%">🐾 Obtener mi descuento →</button>
-          <p style="font-size:11px;color:var(--gris);margin-top:10px">🔒 Pago seguro · Cancela cuando quieras</p>
+          <p style="font-size:11px;color:var(--gris);margin-top:10px">🔒 Pago seguro con Hotmart · Cancela cuando quieras</p>
         </div>
 
         <button id="btn-skip-coupon" onclick="irAlCheckout()" style="background:none;border:none;color:var(--gris);font-size:12px;cursor:pointer;margin-top:20px;text-decoration:underline">No gracias, continuar sin descuento</button>
@@ -1759,7 +1769,13 @@
     }
     const valores = { trial: 3.99, mensual: 6.99, anual: 29.99 };
     if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { value: valores[planActivo] || 6.99, currency: 'USD' });
-    window.location.href = url;
+
+    document.querySelectorAll('.btn-cta').forEach(b => {
+      b.disabled = true;
+      b.style.opacity = '0.85';
+      b.textContent = '🔒 Preparando tu checkout seguro...';
+    });
+    setTimeout(() => { window.location.href = url; }, 700);
   }
 </script>
 </body>
