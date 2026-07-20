@@ -1398,6 +1398,13 @@
         </div>
       </div>
 
+      <!-- GARANTÍA -->
+      <div style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:2px solid #86EFAC;border-radius:20px;padding:20px;margin-top:16px;text-align:center">
+        <div style="font-size:48px;margin-bottom:8px">🛡️</div>
+        <p style="font-size:18px;font-weight:900;color:#166534;margin-bottom:6px">Garantía total de 7 días</p>
+        <p style="font-size:13px;color:#166534;line-height:1.6;margin-bottom:0">Si en 7 días no ves ningún cambio en tu perro, te devolvemos <strong>el 100% de tu dinero</strong> — sin preguntas, sin formularios, sin drama.<br><span style="font-size:12px;opacity:0.8">Hotmart procesa el reembolso directamente. Solo escríbenos.</span></p>
+      </div>
+
       <!-- BLOQUE DE SEGURIDAD DE PAGO -->
       <div style="background:var(--gris-claro);border-radius:16px;padding:16px 18px;margin-top:14px">
         <p style="font-size:13px;font-weight:800;color:var(--marron);margin-bottom:6px;display:flex;align-items:center;gap:6px">🔒 Compra 100% segura</p>
@@ -1407,39 +1414,6 @@
       <!-- TESTIMONIOS -->
     </div>
     <!-- fin step-resultado -->
-
-    <!-- CAPTURA DE EMAIL -->
-    <div class="step" id="step-email">
-      <div style="text-align:center;padding:20px 0 10px">
-        <p style="font-size:13px;font-weight:800;color:var(--azul);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">✅ Tu plan está listo</p>
-        <p style="font-size:26px;font-weight:900;color:var(--marron);line-height:1.2;margin-bottom:8px">Ingresa tu email para<br>acceder a tu plan</p>
-        <p style="font-size:13px;color:var(--gris);margin-bottom:24px">Te enviamos un resumen de tu plan personalizado + acceso inmediato a AZUL.</p>
-        <input type="email" id="input-email" placeholder="tu@email.com" style="width:100%;padding:16px 18px;font-size:16px;border:2px solid #E5E7EB;border-radius:14px;box-sizing:border-box;margin-bottom:12px;font-family:inherit;outline:none" oninput="this.style.borderColor='#E5E7EB'" />
-        <button class="btn-next btn-cta btn-pulse" onclick="guardarEmail()" style="width:100%;font-size:18px;padding:18px">
-          Ver mi plan →
-        </button>
-        <p style="font-size:11px;color:var(--gris);margin-top:10px">🔒 Tu email es privado. No enviamos spam.</p>
-      </div>
-    </div>
-
-    <!-- PANTALLA DE COMPROMISO -->
-    <div class="step" id="step-compromiso">
-      <div style="text-align:center;padding:20px 0 10px">
-        <div style="font-size:64px;margin-bottom:12px">🎯</div>
-        <p style="font-size:24px;font-weight:900;color:var(--marron);line-height:1.2;margin-bottom:20px">¿Estás listo para<br>comprometerte?</p>
-        <div style="display:flex;flex-direction:column;gap:12px">
-          <button onclick="irAPlanes()" style="background:#fff;border:2px solid var(--azul);border-radius:14px;padding:16px 20px;font-size:15px;font-weight:800;color:var(--azul);cursor:pointer;text-align:left">
-            ¡Sí! Voy a empezar hoy mismo 🐾
-          </button>
-          <button onclick="irAPlanes()" style="background:#fff;border:2px solid #E5E7EB;border-radius:14px;padding:16px 20px;font-size:15px;font-weight:700;color:var(--marron);cursor:pointer;text-align:left">
-            Sí, empiezo mañana
-          </button>
-          <button onclick="irAPlanes()" style="background:none;border:none;color:var(--gris);font-size:13px;cursor:pointer;margin-top:4px;text-decoration:underline">
-            Todavía no estoy segura
-          </button>
-        </div>
-      </div>
-    </div>
 
     <!-- CUPÓN RASCA Y GANA (solo plan anual) -->
     <div class="step" id="step-cupon">
