@@ -691,7 +691,7 @@
     <!-- BACK -->
     <button class="btn-back" id="btn-back" style="display:none" onclick="goBack()">← Volver</button>
 
-    <!-- STEP 1: Nombre del perro (NEW) -->
+    <!-- STEP 1: Nombre del perro -->
     <div class="step active" id="step-1">
       <p class="step-q">¿Cómo se llama tu perro? 🐶</p>
       <p class="step-sub">Vamos a crear un plan 100% para él — empecemos por su nombre.</p>
@@ -701,32 +701,68 @@
       <button class="btn-next" onclick="guardarNombre()" id="btn-nombre">Continuar →</button>
     </div>
 
-    <!-- STEP 2: Edad del perro -->
+    <!-- STEP 2: Problema principal -->
     <div class="step" id="step-2">
+      <p class="step-q">¿Qué comportamiento de <span class="dog-name">tu perro</span> más te preocupa?</p>
+      <p class="step-sub">Sé honesto — cuanto más claro seas, más efectivo será el plan.</p>
+      <div class="options">
+        <div class="option" onclick="selectOption(this, 'problema', 'ladrar', 3)">
+          <span class="opt-emoji">🔊</span>
+          <span class="opt-label">Ladra sin parar<span class="opt-sub">Vecinos molestos, visitas incómodas, no puedo más</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'problema', 'ansiedad', 3)">
+          <span class="opt-emoji">😰</span>
+          <span class="opt-label">Destruye todo cuando lo dejo solo<span class="opt-sub">Muebles, zapatos, cables — ya no sé qué hacer</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'problema', 'jalar', 3)">
+          <span class="opt-emoji">🦮</span>
+          <span class="opt-label">Jala la correa con fuerza<span class="opt-sub">Me arrastra, los paseos son una pesadilla</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'problema', 'agresion', 3)">
+          <span class="opt-emoji">😤</span>
+          <span class="opt-label">Agresividad / mordidas<span class="opt-sub">Con personas, otros perros — tengo miedo de lo que pueda pasar</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'problema', 'saltar', 3)">
+          <span class="opt-emoji">🦘</span>
+          <span class="opt-label">Salta encima de todos<span class="opt-sub">Derribó a alguien — ya no es gracioso</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'problema', 'llora', 3)">
+          <span class="opt-emoji">😢</span>
+          <span class="opt-label">Llora o gime constantemente<span class="opt-sub">Demasiada ansiedad — no para ni de noche</span></span>
+        </div>
+        <div class="option" onclick="selectOption(this, 'problema', 'general', 3)">
+          <span class="opt-emoji">📚</span>
+          <span class="opt-label">Quiero mejorar en general<span class="opt-sub">Obediencia, comandos, comportamiento</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: Edad del perro -->
+    <div class="step" id="step-3">
       <p class="step-q">¿Qué edad tiene <span class="dog-name">tu perro</span>?</p>
-      <p class="step-sub">Los problemas de comportamiento se arraigan con el tiempo — saber su edad nos dice qué tan urgente es actuar.</p>
+      <p class="step-sub">Los problemas se arraigan con el tiempo — nos dice qué tan urgente es actuar.</p>
       <div class="options two-col">
-        <div class="option" onclick="selectOption(this, 'edad', 'cachorro', 3)">
+        <div class="option" onclick="selectOption(this, 'edad', 'cachorro', 4)">
           <span class="opt-emoji">🐶</span>
           <span class="opt-label">Cachorro<span class="opt-sub">0 – 6 meses</span></span>
         </div>
-        <div class="option" onclick="selectOption(this, 'edad', 'joven', 3)">
+        <div class="option" onclick="selectOption(this, 'edad', 'joven', 4)">
           <span class="opt-emoji">🐕</span>
           <span class="opt-label">Joven<span class="opt-sub">6 – 18 meses</span></span>
         </div>
-        <div class="option" onclick="selectOption(this, 'edad', 'adulto', 3)">
+        <div class="option" onclick="selectOption(this, 'edad', 'adulto', 4)">
           <span class="opt-emoji">🦮</span>
           <span class="opt-label">Adulto<span class="opt-sub">1,5 – 7 años</span></span>
         </div>
-        <div class="option" onclick="selectOption(this, 'edad', 'senior', 3)">
+        <div class="option" onclick="selectOption(this, 'edad', 'senior', 4)">
           <span class="opt-emoji">🐾</span>
           <span class="opt-label">Senior<span class="opt-sub">7+ años</span></span>
         </div>
       </div>
     </div>
 
-    <!-- STEP 3: Tamaño/raza -->
-    <div class="step" id="step-3">
+    <!-- STEP 4: Tamaño/raza -->
+    <div class="step" id="step-4">
       <p class="step-q">¿Qué tipo de perro es <span class="dog-name">tu perro</span>? 🏷️</p>
       <p class="step-sub">Cada raza aprende de forma diferente — personalizamos el ritmo.</p>
       <div class="options" id="step3-options">
@@ -742,13 +778,11 @@
           <span class="opt-emoji">🦮</span>
           <span class="opt-label">Raza grande<span class="opt-sub">Labrador, Golden, Pastor Alemán, Pitbull...</span></span>
         </div>
-        <div class="option" onclick="selectOption(this, 'tamano', 'mestizo', 4)">
+        <div class="option" onclick="selectOption(this, 'tamano', 'mestizo', 5)">
           <span class="opt-emoji">🐾</span>
           <span class="opt-label">Mestizo / criollo<span class="opt-sub">El mejor perro del mundo 💛</span></span>
         </div>
       </div>
-
-      <!-- Raza específica (opcional) — aparece tras elegir tamaño -->
       <div id="step3-breed-input" style="display:none;margin-top:6px">
         <button onclick="volverATamanos()" style="background:none;border:none;color:var(--gris);font-size:12px;cursor:pointer;margin-bottom:14px;text-decoration:underline">← Cambiar tamaño</button>
         <p style="font-size:14px;font-weight:700;color:var(--marron);margin-bottom:10px">¿Sabes la raza exacta? Hacemos el plan aún más específico 🎯</p>
@@ -758,120 +792,32 @@
       </div>
     </div>
 
-    <!-- STEP 4: Género (NEW) -->
-    <div class="step" id="step-4">
-      <p class="step-q"><span class="dog-name">Tu perro</span> es... 🐾</p>
-      <div class="options">
-        <div class="option" onclick="selectOption(this, 'genero', 'macho', 5)">
-          <span class="opt-emoji">♂️</span>
-          <span class="opt-label">Macho</span>
-        </div>
-        <div class="option" onclick="selectOption(this, 'genero', 'hembra', 5)">
-          <span class="opt-emoji">♀️</span>
-          <span class="opt-label">Hembra</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 5: REFUERZO 1 (NEW) -->
+    <!-- STEP 5: Tiempo que lleva el problema -->
     <div class="step" id="step-5">
-      <div style="text-align:center;padding:10px 0">
-        <p style="font-size:20px;font-weight:900;color:var(--marron);line-height:1.4;margin-bottom:6px">Vamos bien, <span class="dog-name" style="color:var(--azul)">tu perro</span> tiene perfil único ✨</p>
-        <p style="font-size:14px;color:var(--gris);margin-bottom:24px">Faltan pocas preguntas — mientras tanto, mira esto:</p>
-        <div style="background:linear-gradient(135deg,var(--azul),#2B8CC4);color:#fff;border-radius:20px;padding:28px 24px;margin-bottom:24px;box-shadow:0 8px 24px rgba(96,184,232,0.3)">
-          <p style="font-size:13px;font-weight:900;color:var(--amarillo);letter-spacing:2px;margin-bottom:12px">¿SABÍAS ESTO?</p>
-          <p style="font-size:18px;font-style:italic;line-height:1.5;font-weight:600">"Los problemas de comportamiento no son culpa del perro — son señales de que necesita <span style="color:var(--amarillo);font-weight:900">una guía clara</span>. Con el método correcto, cualquier perro puede cambiar."</p>
-        </div>
-        <button class="btn-next" onclick="currentStep=6;showStep(6)" style="font-size:18px;padding:18px">Continuar →</button>
-      </div>
-    </div>
-
-    <!-- STEP 6: Problema principal -->
-    <div class="step" id="step-6">
-      <p class="step-q">¿Qué comportamiento de <span class="dog-name">tu perro</span> más te preocupa?</p>
-      <p class="step-sub">Sé honesto — cuanto más claro seas, más efectivo será el plan.</p>
-      <div class="options">
-        <div class="option" onclick="selectOption(this, 'problema', 'ladrar', 7)">
-          <span class="opt-emoji">🔊</span>
-          <span class="opt-label">Ladra sin parar<span class="opt-sub">Vecinos molestos, visitas incómodas, no puedo más</span></span>
-        </div>
-        <div class="option" onclick="selectOption(this, 'problema', 'ansiedad', 7)">
-          <span class="opt-emoji">😰</span>
-          <span class="opt-label">Destruye todo cuando lo dejo solo<span class="opt-sub">Muebles, zapatos, cables — ya no sé qué hacer</span></span>
-        </div>
-        <div class="option" onclick="selectOption(this, 'problema', 'jalar', 7)">
-          <span class="opt-emoji">🦮</span>
-          <span class="opt-label">Jala la correa con fuerza<span class="opt-sub">Me arrastra, los paseos son una pesadilla</span></span>
-        </div>
-        <div class="option" onclick="selectOption(this, 'problema', 'agresion', 7)">
-          <span class="opt-emoji">😤</span>
-          <span class="opt-label">Agresividad / mordidas<span class="opt-sub">Con personas, otros perros — tengo miedo de lo que pueda pasar</span></span>
-        </div>
-        <div class="option" onclick="selectOption(this, 'problema', 'saltar', 7)">
-          <span class="opt-emoji">🦘</span>
-          <span class="opt-label">Salta encima de todos<span class="opt-sub">Derribó a alguien — ya no es gracioso</span></span>
-        </div>
-        <div class="option" onclick="selectOption(this, 'problema', 'llora', 7)">
-          <span class="opt-emoji">😢</span>
-          <span class="opt-label">Llora o gime constantemente<span class="opt-sub">Demasiada ansiedad — no para ni de noche</span></span>
-        </div>
-        <div class="option" onclick="selectOption(this, 'problema', 'general', 7)">
-          <span class="opt-emoji">📚</span>
-          <span class="opt-label">Quiero mejorar en general<span class="opt-sub">Obediencia, comandos, comportamiento</span></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 7: Experiencia previa (NEW) -->
-    <div class="step" id="step-7">
-      <p class="step-q">¿Has intentado entrenar a <span class="dog-name">tu perro</span> antes? 📋</p>
-      <p class="step-sub">Selecciona la opción que mejor describa tu experiencia:</p>
-      <div class="options">
-        <div class="option" onclick="selectOption(this, 'experiencia', 'nunca', 8)">
-          <span class="opt-emoji">❌</span>
-          <span class="opt-label">No, nunca lo he intentado</span>
-        </div>
-        <div class="option" onclick="selectOption(this, 'experiencia', 'gratis', 8)">
-          <span class="opt-emoji">📱</span>
-          <span class="opt-label">Sí, con info gratuita<span class="opt-sub">YouTube, blogs, redes sociales</span></span>
-        </div>
-        <div class="option" onclick="selectOption(this, 'experiencia', 'pagado', 8)">
-          <span class="opt-emoji">💰</span>
-          <span class="opt-label">Sí, con entrenadores o cursos pagados</span>
-        </div>
-        <div class="option" onclick="selectOption(this, 'experiencia', 'sin_resultado', 8)">
-          <span class="opt-emoji">⚠️</span>
-          <span class="opt-label">Sí, pero no obtuve resultados<span class="opt-sub">Nada ha funcionado hasta ahora</span></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 8: Tiempo que lleva el problema -->
-    <div class="step" id="step-8">
       <p class="step-q">¿Cuánto tiempo llevan con este problema? ⏳</p>
       <p class="step-sub">Cada día que pasa sin trabajarlo, el comportamiento se refuerza más.</p>
       <div class="options two-col">
-        <div class="option" onclick="selectOption(this, 'tiempo', 'reciente', 9)">
+        <div class="option" onclick="selectOption(this, 'tiempo', 'reciente', 6)">
           <span class="opt-emoji">🌱</span>
           <span class="opt-label">Menos de un mes</span>
         </div>
-        <div class="option" onclick="selectOption(this, 'tiempo', 'meses', 9)">
+        <div class="option" onclick="selectOption(this, 'tiempo', 'meses', 6)">
           <span class="opt-emoji">📅</span>
           <span class="opt-label">1 – 6 meses</span>
         </div>
-        <div class="option" onclick="selectOption(this, 'tiempo', 'anio', 9)">
+        <div class="option" onclick="selectOption(this, 'tiempo', 'anio', 6)">
           <span class="opt-emoji">🗓️</span>
           <span class="opt-label">6 meses – 1 año</span>
         </div>
-        <div class="option" onclick="selectOption(this, 'tiempo', 'mas', 9)">
+        <div class="option" onclick="selectOption(this, 'tiempo', 'mas', 6)">
           <span class="opt-emoji">😓</span>
           <span class="opt-label">Más de un año</span>
         </div>
       </div>
     </div>
 
-    <!-- STEP 9: REFUERZO 2 (NEW) -->
-    <div class="step" id="step-9">
+    <!-- STEP 6: REFUERZO -->
+    <div class="step" id="step-6">
       <div style="text-align:center;padding:10px 0">
         <p style="font-size:20px;font-weight:900;color:var(--marron);line-height:1.4;margin-bottom:6px">Tu plan está casi listo 🔥</p>
         <p style="font-size:14px;color:var(--gris);margin-bottom:24px">Miles de dueños pensaron que su perro "era así" — hasta que aplicaron el método correcto.</p>
@@ -879,56 +825,12 @@
           <p style="font-size:13px;font-weight:900;color:#fff;letter-spacing:2px;margin-bottom:12px;opacity:0.8">ESTO LO CAMBIA TODO</p>
           <p style="font-size:18px;font-style:italic;line-height:1.5;font-weight:600">"No existen perros imposibles. Solo dueños que aún no tienen <span style="color:#F7D44C;font-weight:900">el plan correcto</span> para su perro específico."</p>
         </div>
-        <button class="btn-next" onclick="currentStep=10;showStep(10)" style="font-size:18px;padding:18px">Continuar →</button>
+        <button class="btn-next" onclick="currentStep=7;showStep(7)" style="font-size:18px;padding:18px">Continuar →</button>
       </div>
     </div>
 
-    <!-- STEP 10: Dedicación -->
-    <div class="step" id="step-10">
-      <p class="step-q">¿Cuánto tiempo al día puedes entrenar? ⏱️</p>
-      <p class="step-sub">No se necesita mucho — la constancia es lo que importa.</p>
-      <div class="options">
-        <div class="option" onclick="selectOption(this, 'dedicacion', '5min', 11)">
-          <span class="opt-emoji">⚡</span>
-          <span class="opt-label">5 minutos<span class="opt-sub">Sesiones cortas y efectivas</span></span>
-        </div>
-        <div class="option" onclick="selectOption(this, 'dedicacion', '15min', 11)">
-          <span class="opt-emoji">🎯</span>
-          <span class="opt-label">15 minutos<span class="opt-sub">El tiempo ideal para resultados rápidos</span></span>
-        </div>
-        <div class="option" onclick="selectOption(this, 'dedicacion', '30min', 11)">
-          <span class="opt-emoji">🏆</span>
-          <span class="opt-label">30 minutos o más<span class="opt-sub">Máximos resultados</span></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 11: Emoción -->
-    <div class="step" id="step-11">
-      <p class="step-q">¿Cómo te sientes cuando <span class="dog-name">tu perro</span> no te obedece?</p>
-      <p class="step-sub">Sé honesto — esto nos ayuda a diseñar un plan que también funcione para ti.</p>
-      <div class="options">
-        <div class="option" onclick="selectOption(this, 'emocion_fallo', 'frustrado', 12)">
-          <span class="opt-emoji">😤</span>
-          <span class="opt-label">Frustrado / sin paciencia<span class="opt-sub">Siento que no sé qué más hacer</span></span>
-        </div>
-        <div class="option" onclick="selectOption(this, 'emocion_fallo', 'culpa', 12)">
-          <span class="opt-emoji">😞</span>
-          <span class="opt-label">Con culpa<span class="opt-sub">Siento que es mi culpa</span></span>
-        </div>
-        <div class="option" onclick="selectOption(this, 'emocion_fallo', 'preocupada', 12)">
-          <span class="opt-emoji">😰</span>
-          <span class="opt-label">Preocupado<span class="opt-sub">Me da miedo que esto empeore</span></span>
-        </div>
-        <div class="option" onclick="selectOption(this, 'emocion_fallo', 'resignada', 12)">
-          <span class="opt-emoji">🤷</span>
-          <span class="opt-label">Resignado<span class="opt-sub">Ya casi lo acepto como "su personalidad"</span></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 12: Meta final → loading -->
-    <div class="step" id="step-12">
+    <!-- STEP 7: Meta final → loading -->
+    <div class="step" id="step-7">
       <p class="step-q">¿Cómo quieres que sea la vida con <span class="dog-name">tu perro</span>?</p>
       <p class="step-sub">Esto define el objetivo final de tu plan — imagínalo ya resuelto.</p>
       <div class="options">
@@ -1464,7 +1366,7 @@
   // ── Estado ──────────────────────────────────────────────────
   const answers = {};
   let currentStep = 1;
-  const TOTAL_STEPS = 12;
+  const TOTAL_STEPS = 7;
 
   function guardarNombre() {
     const nombre = document.getElementById('input-nombre').value.trim();
@@ -1482,8 +1384,8 @@
     const el = document.getElementById('step-' + id);
     if (el) el.classList.add('active');
 
-    const isSpecial = id === 'loading' || id === 'resultado' || id === 'feedback' || id === 'cupon' || id === 'email' || id === 'compromiso';
-    const isRefuerzo = id == '5' || id == '9';
+    const isSpecial = id === 'loading' || id === 'resultado' || id === 'feedback' || id === 'cupon';
+    const isRefuerzo = id == '6';
     document.getElementById('progress-section').style.display = isSpecial ? 'none' : 'block';
     document.getElementById('btn-back').style.display = (currentStep > 1 && !isSpecial && !isRefuerzo) ? 'flex' : 'none';
 
@@ -1509,7 +1411,7 @@
     } else if (!isSpecial) {
       document.getElementById('hero-badge').textContent = '✨ Método validado por adiestradores profesionales';
       document.getElementById('hero-h1').innerHTML = 'No fallaste como dueño.<br><span>Solo necesitas el método correcto.</span>';
-      document.getElementById('hero-p').textContent = 'De perro caótico a compañero perfecto — responde 10 preguntas y obtén tu plan personalizado en 2 minutos.';
+      document.getElementById('hero-p').textContent = 'De perro caótico a compañero perfecto — responde 7 preguntas y obtén tu plan personalizado en 2 minutos.';
     }
 
     if (!isSpecial) {
@@ -1555,8 +1457,8 @@
     answers.raza_especifica = val;
     document.getElementById('step3-breed-input').style.display = 'none';
     document.getElementById('step3-options').style.display = '';
-    currentStep = 4;
-    showStep(4);
+    currentStep = 5;
+    showStep(5);
   }
 
   function selectOption(el, key, value, next) {
